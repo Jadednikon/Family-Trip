@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="PR Trip"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="theme-color" content="#744D1C"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png"><link rel="stylesheet" href="_ds/modernist-39659a5a-68d6-413e-90d3-205ce42d5fa0/styles.css"><script src="_ds/modernist-39659a5a-68d6-413e-90d3-205ce42d5fa0/_ds_bundle.js"></script><style>:root{--color-bg:#FBF3E3;--color-surface:#F5E9D2;--color-text:#16332E;--color-accent:#A5702C;--color-accent-2:#B8813C;--color-divider:color-mix(in srgb,#16332E 32%,transparent);--color-accent-100:#FCF3E3;--color-accent-200:#F5E4C6;--color-accent-300:#E9CD9B;--color-accent-400:#D4AC66;--color-accent-500:#BC8836;--color-accent-600:#8E5F23;--color-accent-700:#744D1C;--color-accent-800:#573A15;--color-accent-900:#3C2810;--color-neutral-100:#FBF6EC;--color-neutral-200:#F0E7D6;--color-neutral-300:#DED3BF;--color-neutral-400:#BFB4A0;--color-neutral-500:#9A9284;--color-neutral-600:#7A7669;--color-neutral-700:#4F5C53;--color-neutral-800:#2E4239;--color-neutral-900:#16332E}html,body{margin:0;min-height:100%;background:#EFE4CC;font-family:"Archivo",system-ui,sans-serif;-webkit-text-size-adjust:100%;overscroll-behavior:none}a{color:var(--color-accent-700);text-decoration:none}a:hover{color:var(--color-accent-800)}.appscroll::-webkit-scrollbar{width:0}</style></helmet>
+<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402px,874px">
+<div style="position:relative;height:100%;display:flex;flex-direction:column;padding-top:52px;background:var(--color-bg);color:var(--color-text);font-family:'Archivo',system-ui,sans-serif;overflow:hidden">
+
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 16px 10px;border-bottom:2px solid var(--color-divider);flex:none">
+            <sc-if value="{{ canBack }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ goBack }}" style="width:26px;height:26px;flex:none;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--color-divider);cursor:pointer;color:var(--color-text)">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="15 5 8 12 15 19"></polyline></svg>
+              </button>
+            </sc-if>
+            <div style="min-width:0;flex:1">
+              <div style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent);font-weight:800">Salt air, slow mornings</div>
+              <div style="font-size:17px;font-weight:800;line-height:1.15;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ screenTitle }}</div>
+            </div>
+            <button onClick="{{ toggleRole }}" style="flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:3px;background:transparent;border:0;padding:0;cursor:pointer;font-family:inherit;color:var(--color-text)">
+              <span class="tag" style="font-size:9px;letter-spacing:.08em;padding:2px 7px;background:{{ lockChipBg }};color:{{ lockChipFg }}">{{ lockChipLabel }}</span>
+              <span style="font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">{{ syncLabel }}</span>
+            </button>
+          </div>
+
+          <div class="appscroll" style="flex:1;overflow-y:auto;overflow-x:hidden">
+
+            <sc-if value="{{ isCountdown }}" hint-placeholder-val="{{ true }}">
+              <div>
+                <div style="padding:22px 16px 20px;background:var(--color-accent-700);color:var(--color-bg)">
+                  <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;">Days until we land in San Juan</div>
+                  <div style="display:flex;align-items:flex-end;gap:12px;margin-top:6px">
+                    <div style="font-size:96px;font-weight:800;line-height:.82;letter-spacing:-.04em">{{ cdDays }}</div>
+                    <div style="font-size:13px;font-weight:800;line-height:1.35;padding-bottom:8px;font-variant-numeric:tabular-nums">{{ cdClock }}<br><span style="font-weight:400">hrs · min · sec</span></div>
+                  </div>
+                  <div style="height:2px;background:var(--color-bg);opacity:.5;margin:16px 0 10px"></div>
+                  <div style="display:flex;justify-content:space-between;gap:10px;font-size:12px;font-weight:800">
+                    <span>Sat Feb 13 → Fri Feb 19, 2027</span><span style="">7 days · 6 nights</span>
+                  </div>
+                  <div style="font-size:11px;margin-top:3px">Penciled in. Nothing's paid for yet.</div>
+                </div>
+
+                <div style="padding:16px 16px 4px">
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                    <div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">Planning</div>
+                    <div style="font-size:11px;color:var(--color-neutral-700);font-weight:800">{{ progressLabel }}</div>
+                  </div>
+                  <div style="display:flex;gap:3px;margin-top:8px">
+                    <sc-for list="{{ progressCells }}" as="cell" hint-placeholder-count="8">
+                      <div style="height:10px;flex:1;background:{{ cell.bg }};border:1px solid var(--color-divider)"></div>
+                    </sc-for>
+                  </div>
+                </div>
+
+                <div style="padding:18px 0 0">
+                  <div style="padding:0 16px 8px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">Still to nail down</div>
+                  <sc-for list="{{ openItems }}" as="item" hint-placeholder-count="4">
+                    <button onClick="{{ item.onEdit }}" style="width:100%;display:flex;align-items:center;gap:12px;text-align:left;background:transparent;border:0;border-top:1px solid var(--color-divider);padding:12px 16px;cursor:pointer;font-family:inherit;color:var(--color-text)">
+                      <span style="flex:1;min-width:0">
+                        <span style="display:block;font-size:14px;font-weight:800;line-height:1.25">{{ item.title }}</span>
+                        <span style="display:block;font-size:11px;color:var(--color-neutral-700);margin-top:2px">{{ item.note }}</span>
+                      </span>
+                      <span class="tag" style="flex:none;font-size:9px;letter-spacing:.08em;padding:3px 8px;background:{{ item.tagBg }};color:{{ item.tagFg }}">{{ item.tag }}</span>
+                    </button>
+                  </sc-for>
+                  <div style="border-top:1px solid var(--color-divider)"></div>
+                </div>
+
+                <div style="padding:18px 16px 6px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                  <button onClick="{{ goDays }}" class="btn btn-secondary btn-block" style="margin:0">Day by day</button>
+                  <button onClick="{{ goBook }}" class="btn btn-secondary btn-block" style="margin:0">Confirmations</button>
+                  <button onClick="{{ goCrew }}" class="btn btn-secondary btn-block" style="margin:0">Who to call</button>
+                  <button onClick="{{ goPacking }}" class="btn btn-secondary btn-block" style="margin:0">Packing</button>
+                </div>
+                <div style="padding:8px 16px 20px;font-size:11px;line-height:1.5;color:var(--color-neutral-700)">Mid-February in San Juan runs about 82° / 71°, with brief afternoon showers in El Yunque. Not a forecast — just what to pack for.</div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isDuring }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <div style="padding:16px;border-bottom:2px solid var(--color-divider)">
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                    <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">Day 4 of 7 · Tue Feb 16</div>
+                    <div style="font-size:11px;font-weight:800;color:var(--color-neutral-700)">11:20 AM AST</div>
+                  </div>
+                  <div style="font-size:30px;font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-top:6px">El Yunque rainforest</div>
+                </div>
+                <div style="padding:15px 16px;background:var(--color-accent-700);color:var(--color-bg)">
+                  <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;">Happening now</div>
+                  <div style="font-size:21px;font-weight:800;line-height:1.18;margin-top:5px">Big Tree Trail to La Mina Falls</div>
+                  <div style="font-size:12px;margin-top:5px;">0.9 miles each way, paved the whole way. Swim at the bottom.</div>
+                </div>
+                <div style="padding:12px 16px;border-bottom:1px solid var(--color-divider);display:flex;gap:12px;align-items:baseline">
+                  <div style="font-size:11px;font-weight:800;color:var(--color-accent);width:68px;flex:none">IN 2H 10M</div>
+                  <div style="flex:1"><div style="font-size:15px;font-weight:800">Las Paylas water slides</div><div style="font-size:11px;color:var(--color-neutral-700);margin-top:2px">1:30 PM · water shoes are in the blue bag</div></div>
+                </div>
+                <sc-for list="{{ todayRest }}" as="ev" hint-placeholder-count="3">
+                  <div style="padding:12px 16px;border-bottom:1px solid var(--color-divider);display:flex;gap:12px;align-items:baseline">
+                    <div style="font-size:11px;font-weight:800;color:var(--color-neutral-700);width:68px;flex:none">{{ ev.time }}</div>
+                    <div style="flex:1"><div style="font-size:15px;font-weight:800">{{ ev.title }}</div><div style="font-size:11px;color:var(--color-neutral-700);margin-top:2px">{{ ev.note }}</div></div>
+                  </div>
+                </sc-for>
+                <div style="padding:16px;display:grid;gap:8px">
+                  <button onClick="{{ goChat }}" class="btn btn-primary btn-block" style="margin:0">Tell everyone where we are</button>
+                  <button onClick="{{ goDays }}" class="btn btn-secondary btn-block" style="margin:0">See the whole week</button>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isDays }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <sc-for list="{{ days }}" as="d" hint-placeholder-count="7">
+                  <button onClick="{{ d.onOpen }}" style="width:100%;display:flex;gap:12px;align-items:flex-start;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--color-divider);padding:14px 16px;cursor:pointer;font-family:inherit;color:var(--color-text)">
+                    <span style="flex:none;width:50px">
+                      <span style="display:block;font-size:23px;font-weight:800;line-height:1;letter-spacing:-.02em">{{ d.num }}</span>
+                      <span style="display:block;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-neutral-700);margin-top:3px">{{ d.date }}</span>
+                    </span>
+                    <span style="flex:1;min-width:0">
+                      <span style="display:block;font-size:15px;font-weight:800;line-height:1.25">{{ d.title }}</span>
+                      <span style="display:block;font-size:11px;color:var(--color-neutral-700);margin-top:3px;line-height:1.45">{{ d.sub }}</span>
+                    </span>
+                    <span class="tag" style="flex:none;font-size:9px;letter-spacing:.08em;padding:3px 8px;background:{{ d.tagBg }};color:{{ d.tagFg }}">{{ d.tag }}</span>
+                  </button>
+                </sc-for>
+                <div style="padding:14px 16px;font-size:11px;line-height:1.5;color:var(--color-neutral-700)">Tight on vacation days? The slow mornings on days 3 and 6 are the first things to trim.</div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isDay }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <div style="padding:16px;border-bottom:2px solid var(--color-divider)">
+                  <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">{{ dayHead }}</div>
+                  <div style="font-size:26px;font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-top:5px">{{ dayTitle }}</div>
+                  <div style="font-size:12px;color:var(--color-neutral-700);margin-top:6px;line-height:1.5">{{ daySub }}</div>
+                </div>
+                <sc-for list="{{ dayEvents }}" as="ev" hint-placeholder-count="4">
+                  <div style="padding:13px 16px;border-bottom:1px solid var(--color-divider);display:flex;gap:12px;align-items:flex-start">
+                    <div style="width:68px;flex:none;font-size:11px;font-weight:800;color:var(--color-neutral-700);padding-top:3px">{{ ev.time }}</div>
+                    <div style="flex:1;min-width:0">
+                      <div style="font-size:15px;font-weight:800;line-height:1.25">{{ ev.title }}</div>
+                      <div style="font-size:11px;color:var(--color-neutral-700);margin-top:3px;line-height:1.45">{{ ev.note }}</div>
+                      <sc-if value="{{ ev.hasField }}" hint-placeholder-val="{{ false }}">
+                        <button onClick="{{ ev.onEdit }}" style="margin-top:9px;width:100%;display:flex;align-items:baseline;gap:10px;text-align:left;background:var(--color-surface);border:1px solid var(--color-divider);border-left:3px solid {{ ev.fieldBorder }};padding:8px 10px;cursor:pointer;font-family:inherit;color:var(--color-text)">
+                          <span style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-700);flex:none">{{ ev.fieldLabel }}</span>
+                          <span style="font-size:12px;font-weight:800;margin-left:auto;font-variant-numeric:tabular-nums;color:{{ ev.fieldColor }}">{{ ev.fieldValue }}</span>
+                        </button>
+                      </sc-if>
+                      <sc-if value="{{ ev.canRemind }}" hint-placeholder-val="{{ false }}">
+                        <button onClick="{{ ev.onRemind }}" style="margin-top:9px;display:flex;align-items:center;gap:8px;background:transparent;border:0;padding:0;cursor:pointer;font-family:inherit;color:var(--color-text)">
+                          <span style="width:14px;height:14px;flex:none;border:1.5px solid {{ ev.remindBorder }};background:{{ ev.remindBg }}"></span>
+                          <span style="font-size:11px;color:var(--color-neutral-700)">{{ ev.remindLabel }}</span>
+                        </button>
+                      </sc-if>
+                    </div>
+                  </div>
+                </sc-for>
+                <div style="padding:16px">
+                  <button onClick="{{ goChat }}" class="btn btn-secondary btn-block" style="margin:0">Ask the group about this day</button>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isBook }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <div style="display:flex;border-bottom:2px solid var(--color-divider)">
+                  <sc-for list="{{ bookTabs }}" as="bt" hint-placeholder-count="4">
+                    <button onClick="{{ bt.onPick }}" style="flex:1;padding:11px 8px;background:{{ bt.bg }};color:{{ bt.fg }};border:0;border-right:1px solid var(--color-divider);font-family:inherit;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-align:left;cursor:pointer">{{ bt.label }}</button>
+                  </sc-for>
+                </div>
+                <div style="padding:14px 16px 6px;display:flex;flex-direction:column;gap:14px">
+                  <sc-for list="{{ bookings }}" as="b" hint-placeholder-count="2">
+                    <div>
+                      <sc-if value="{{ styleLedger }}" hint-placeholder-val="{{ true }}">
+                        <div style="background:var(--color-surface);border-left:3px solid var(--color-text);padding:13px 14px">
+                          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                            <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">{{ b.kicker }}</div>
+                            <span class="tag" style="font-size:9px;letter-spacing:.08em;padding:3px 8px;background:{{ b.tagBg }};color:{{ b.tagFg }}">{{ b.status }}</span>
+                          </div>
+                          <div style="font-size:18px;font-weight:800;line-height:1.15;margin-top:5px">{{ b.title }}</div>
+                          <div style="font-size:11px;color:var(--color-neutral-700);margin-top:4px;line-height:1.45">{{ b.note }}</div>
+                          <div style="margin-top:9px">
+                            <sc-for list="{{ b.rows }}" as="r" hint-placeholder-count="2">
+                              <button onClick="{{ r.onEdit }}" style="width:100%;display:flex;justify-content:space-between;gap:10px;align-items:baseline;border:0;border-top:1px solid var(--color-divider);background:transparent;padding:8px 0;cursor:pointer;font-family:inherit;text-align:left;color:var(--color-text)">
+                                <span style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-700)">{{ r.label }}</span>
+                                <span style="font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;color:{{ r.color }};text-align:right">{{ r.value }}</span>
+                              </button>
+                            </sc-for>
+                          </div>
+                          <div style="display:flex;gap:8px;margin-top:11px;flex-wrap:wrap">
+                            <button onClick="{{ b.onEdit }}" class="btn btn-primary" style="justify-content:flex-start">{{ b.editLabel }}</button>
+                            <a class="btn btn-secondary" href="{{ b.callHref }}" style="justify-content:flex-start">{{ b.callLabel }}</a>
+                          </div>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ styleStub }}" hint-placeholder-val="{{ false }}">
+                        <div style="display:flex;background:var(--color-surface);border-top:3px solid var(--color-text)">
+                          <div style="flex:1;min-width:0;padding:13px 14px;border-right:2px dashed color-mix(in srgb,var(--color-text) 35%,transparent)">
+                            <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">{{ b.kicker }}</div>
+                            <div style="font-size:19px;font-weight:800;line-height:1.12;margin-top:5px">{{ b.title }}</div>
+                            <div style="font-size:11px;color:var(--color-neutral-700);margin-top:4px;line-height:1.45">{{ b.note }}</div>
+                            <div style="display:flex;gap:8px;margin-top:11px;flex-wrap:wrap">
+                              <button onClick="{{ b.onEdit }}" class="btn btn-primary" style="justify-content:flex-start">{{ b.editLabel }}</button>
+                              <a class="btn btn-secondary" href="{{ b.callHref }}" style="justify-content:flex-start">{{ b.callLabel }}</a>
+                            </div>
+                          </div>
+                          <div style="width:98px;flex:none;padding:13px 10px;display:flex;flex-direction:column;justify-content:space-between;gap:14px">
+                            <div>
+                              <div style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-700)">Conf</div>
+                              <div style="font-size:14px;font-weight:800;line-height:1.2;margin-top:2px;font-variant-numeric:tabular-nums;word-break:break-all;color:{{ b.confColor }}">{{ b.conf }}</div>
+                            </div>
+                            <span class="tag" style="font-size:9px;letter-spacing:.08em;padding:3px 7px;background:{{ b.tagBg }};color:{{ b.tagFg }}">{{ b.status }}</span>
+                          </div>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ stylePoster }}" hint-placeholder-val="{{ false }}">
+                        <div style="background:var(--color-accent-700);color:var(--color-bg);padding:15px 14px">
+                          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                            <div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;">{{ b.kicker }}</div>
+                            <div style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;border:1px solid var(--color-bg);padding:2px 7px">{{ b.status }}</div>
+                          </div>
+                          <div style="font-size:24px;font-weight:800;line-height:1.06;letter-spacing:-.02em;margin-top:7px">{{ b.title }}</div>
+                          <div style="height:2px;background:var(--color-bg);opacity:.5;margin:12px 0 9px"></div>
+                          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                            <div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;">Confirmation</div>
+                            <div style="font-size:17px;font-weight:800;font-variant-numeric:tabular-nums">{{ b.conf }}</div>
+                          </div>
+                          <div style="font-size:11px;margin-top:8px;line-height:1.45">{{ b.note }}</div>
+                          <div style="display:flex;gap:8px;margin-top:12px">
+                            <button onClick="{{ b.onEdit }}" style="flex:1;text-align:left;background:var(--color-bg);color:var(--color-text);border:0;padding:9px 12px;font-family:inherit;font-size:14px;font-weight:800;cursor:pointer">{{ b.editLabel }}</button>
+                            <a href="{{ b.callHref }}" style="text-align:left;background:transparent;color:var(--color-bg);border:1px solid var(--color-bg);padding:9px 12px;font-family:inherit;font-size:14px;font-weight:800;text-decoration:none">{{ b.callLabel }}</a>
+                          </div>
+                        </div>
+                      </sc-if>
+                    </div>
+                  </sc-for>
+                  <div style="font-size:11px;line-height:1.5;color:var(--color-neutral-700);padding-bottom:8px">{{ bookFoot }}</div>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isCrew }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <sc-for list="{{ contactGroups }}" as="g" hint-placeholder-count="2">
+                  <div>
+                    <div style="padding:14px 16px 8px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">{{ g.label }}</div>
+                    <sc-for list="{{ g.people }}" as="p" hint-placeholder-count="3">
+                      <div style="border-top:1px solid var(--color-divider);padding:12px 16px;display:flex;gap:10px;align-items:center">
+                        <div style="flex:1;min-width:0">
+                          <div style="font-size:15px;font-weight:800;line-height:1.2">{{ p.name }}</div>
+                          <div style="font-size:11px;color:var(--color-neutral-700);margin-top:2px">{{ p.role }}</div>
+                          <div style="font-size:12px;font-weight:800;margin-top:3px;font-variant-numeric:tabular-nums;color:{{ p.numColor }}">{{ p.number }}</div>
+                        </div>
+                        <div style="display:flex;gap:6px;flex:none">
+                          <sc-if value="{{ p.hasNumber }}" hint-placeholder-val="{{ true }}">
+                            <a class="btn btn-primary" href="{{ p.tel }}" style="padding:8px 11px">Call</a>
+                          </sc-if>
+                          <sc-if value="{{ p.canText }}" hint-placeholder-val="{{ false }}">
+                            <a class="btn btn-secondary" href="{{ p.sms }}" style="padding:8px 11px">Text</a>
+                          </sc-if>
+                          <sc-if value="{{ p.hasField }}" hint-placeholder-val="{{ false }}">
+                            <button onClick="{{ p.onEdit }}" class="btn btn-secondary" style="padding:8px 11px;white-space:nowrap">Add</button>
+                          </sc-if>
+                        </div>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-for>
+                <div style="border-top:2px solid var(--color-divider);margin-top:14px;padding:14px 16px;display:flex;gap:10px;align-items:center">
+                  <a class="btn btn-primary" href="tel:911" style="justify-content:flex-start">911</a>
+                  <span style="font-size:11px;color:var(--color-neutral-700);line-height:1.45">Puerto Rico is a US territory — 911 works and your phone plan does too. The 555 numbers are placeholders until we fill in the real ones.</span>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isMore }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <sc-for list="{{ moreItems }}" as="m" hint-placeholder-count="5">
+                  <button onClick="{{ m.onOpen }}" style="width:100%;display:flex;gap:12px;align-items:center;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--color-divider);padding:14px 16px;cursor:pointer;font-family:inherit;color:var(--color-text)">
+                    <span style="flex:1;min-width:0">
+                      <span style="display:block;font-size:15px;font-weight:800">{{ m.label }}</span>
+                      <span style="display:block;font-size:11px;color:var(--color-neutral-700);margin-top:2px">{{ m.note }}</span>
+                    </span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="flex:none;color:var(--color-neutral-600)"><polyline points="9 5 16 12 9 19"></polyline></svg>
+                  </button>
+                </sc-for>
+                <div style="padding:18px 16px 6px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">Settings</div>
+                <sc-for list="{{ settings }}" as="s" hint-placeholder-count="3">
+                  <button onClick="{{ s.onToggle }}" style="width:100%;display:flex;gap:12px;align-items:center;text-align:left;background:transparent;border:0;border-top:1px solid var(--color-divider);padding:12px 16px;cursor:pointer;font-family:inherit;color:var(--color-text)">
+                    <span style="flex:1;min-width:0">
+                      <span style="display:block;font-size:14px;font-weight:800">{{ s.label }}</span>
+                      <span style="display:block;font-size:11px;color:var(--color-neutral-700);margin-top:2px">{{ s.note }}</span>
+                    </span>
+                    <span style="flex:none;width:40px;height:20px;border:1.5px solid {{ s.trackBorder }};background:{{ s.trackBg }};display:flex;align-items:center;justify-content:{{ s.justify }};padding:2px">
+                      <span style="width:13px;height:13px;background:{{ s.knob }}"></span>
+                    </span>
+                  </button>
+                </sc-for>
+                <div style="border-top:1px solid var(--color-divider);padding:14px 16px;font-size:11px;line-height:1.5;color:var(--color-neutral-700)">Everything here is stored on your phone, so it opens with no signal. Changes sync the next time you're on wifi.</div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isPacking }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <div style="padding:14px 16px;border-bottom:2px solid var(--color-divider);display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                  <span style="font-size:12px;font-weight:800;color:var(--color-neutral-700)">{{ packedLabel }}</span>
+                  <span style="font-size:11px;color:var(--color-neutral-700)">Everyone sees the same list</span>
+                </div>
+                <sc-for list="{{ packList }}" as="p" hint-placeholder-count="8">
+                  <button onClick="{{ p.onToggle }}" style="width:100%;display:flex;gap:12px;align-items:flex-start;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--color-divider);padding:12px 16px;cursor:pointer;font-family:inherit;color:var(--color-text)">
+                    <span style="width:18px;height:18px;flex:none;margin-top:1px;border:1.5px solid {{ p.boxBorder }};background:{{ p.boxBg }};display:flex;align-items:center;justify-content:center">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="{{ p.checkColor }}" stroke-width="4"><polyline points="4 13 9 18 20 6"></polyline></svg>
+                    </span>
+                    <span style="flex:1;min-width:0">
+                      <span style="display:block;font-size:14px;font-weight:800;line-height:1.3;text-decoration:{{ p.strike }}">{{ p.label }}</span>
+                      <span style="display:block;font-size:11px;color:var(--color-neutral-700);margin-top:2px">{{ p.note }}</span>
+                    </span>
+                  </button>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isChat }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:14px 16px 6px;display:flex;flex-direction:column;gap:12px">
+                <sc-for list="{{ messages }}" as="m" hint-placeholder-count="4">
+                  <div style="display:flex;flex-direction:column;align-items:{{ m.align }}">
+                    <div style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:800">{{ m.who }} · {{ m.when }}</div>
+                    <div style="max-width:84%;margin-top:4px;padding:9px 11px;background:{{ m.bg }};color:{{ m.fg }};border-left:3px solid {{ m.edge }};font-size:13px;line-height:1.45">{{ m.text }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isNotes }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <sc-for list="{{ notes }}" as="n" hint-placeholder-count="3">
+                  <div style="border-bottom:1px solid var(--color-divider);padding:14px 16px">
+                    <div style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent);font-weight:800">{{ n.who }}</div>
+                    <div style="font-size:15px;font-weight:800;line-height:1.25;margin-top:4px">{{ n.title }}</div>
+                    <div style="font-size:12px;color:var(--color-neutral-700);margin-top:4px;line-height:1.5">{{ n.body }}</div>
+                  </div>
+                </sc-for>
+                <div style="padding:16px">
+                  <button onClick="{{ addNote }}" class="btn btn-secondary btn-block" style="margin:0">Add a note</button>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isAdmin }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <div style="padding:13px 16px;background:var(--color-surface);border-bottom:2px solid var(--color-divider);display:flex;justify-content:space-between;align-items:center;gap:10px">
+                  <div style="font-size:11px;line-height:1.45;color:var(--color-neutral-700)">You're unlocked. Everyone else sees this read-only.</div>
+                  <button onClick="{{ signOut }}" class="btn btn-secondary" style="flex:none;padding:7px 10px">Lock</button>
+                </div>
+                <div style="padding:14px 16px 6px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">Itinerary</div>
+                <sc-for list="{{ adminDays }}" as="ad" hint-placeholder-count="7">
+                  <div style="border-top:1px solid var(--color-divider);background:{{ ad.rowBg }}">
+                    <button onClick="{{ ad.onToggle }}" style="width:100%;display:flex;gap:12px;align-items:baseline;text-align:left;background:transparent;border:0;padding:12px 16px;cursor:pointer;font-family:inherit;color:var(--color-text)">
+                      <span style="width:50px;flex:none;font-size:11px;font-weight:800;color:var(--color-neutral-700)">{{ ad.num }}</span>
+                      <span style="flex:1;min-width:0"><span style="display:block;font-size:14px;font-weight:800">{{ ad.title }}</span><span style="display:block;font-size:11px;color:var(--color-neutral-700);margin-top:2px">{{ ad.date }} · {{ ad.count }}</span></span>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="flex:none;color:var(--color-neutral-600)"><polyline points="5 9 12 16 19 9"></polyline></svg>
+                    </button>
+                    <sc-if value="{{ ad.open }}" hint-placeholder-val="{{ false }}">
+                      <div style="padding:0 16px 14px">
+                        <sc-for list="{{ ad.events }}" as="ae" hint-placeholder-count="2">
+                          <div style="display:flex;gap:10px;align-items:baseline;border-top:1px solid var(--color-divider);padding:8px 0">
+                            <span style="width:62px;flex:none;font-size:10px;font-weight:800;color:var(--color-neutral-700)">{{ ae.time }}</span>
+                            <span style="flex:1;min-width:0;font-size:13px;font-weight:800;line-height:1.3">{{ ae.title }}</span>
+                            <button onClick="{{ ae.onDelete }}" style="flex:none;width:24px;height:24px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--color-divider);cursor:pointer;color:var(--color-text)">
+                              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+                            </button>
+                          </div>
+                        </sc-for>
+                        <div style="border-top:2px solid var(--color-divider);margin-top:10px;padding-top:12px;display:flex;flex-direction:column;gap:8px">
+                          <div style="display:flex;gap:8px">
+                            <div class="field" style="width:96px;flex:none"><label>Time</label><input class="input" value="{{ neTime }}" onChange="{{ onNeTime }}" placeholder="9:30 AM"></input></div>
+                            <div class="field" style="flex:1;min-width:0"><label>What are we doing?</label><input class="input" value="{{ neTitle }}" onChange="{{ onNeTitle }}" placeholder="Casa Bacardí tour"></input></div>
+                          </div>
+                          <div class="field"><label>Note (optional)</label><input class="input" value="{{ neNote }}" onChange="{{ onNeNote }}" placeholder="Ferry across the bay, 20 minutes"></input></div>
+                          <button onClick="{{ addEvent }}" class="btn btn-primary btn-block" style="margin:0">Add to this day</button>
+                        </div>
+                      </div>
+                    </sc-if>
+                  </div>
+                </sc-for>
+                <div style="border-top:1px solid var(--color-divider);padding:14px 16px">
+                  <button onClick="{{ addDay }}" class="btn btn-secondary btn-block" style="margin:0">Add another day</button>
+                </div>
+                <div style="border-top:2px solid var(--color-divider);padding:14px 16px 6px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">Google Sheet</div>
+                <div style="padding:4px 16px 14px;display:flex;flex-direction:column;gap:8px">
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                    <span style="font-size:11px;line-height:1.45;color:var(--color-neutral-700)">{{ sheetStatus }}</span>
+                    <span class="tag" style="flex:none;font-size:9px;letter-spacing:.08em;padding:3px 8px;background:{{ syncBg }};color:{{ syncFg }}">{{ syncLabel }}</span>
+                  </div>
+                  <div class="field"><label>Web app URL</label><input class="input" value="{{ sheetUrl }}" onChange="{{ onSheetUrl }}" placeholder="https://script.google.com/…/exec"></input></div>
+                  <div class="field"><label>Shared token</label><input class="input" type="password" value="{{ sheetToken }}" onChange="{{ onSheetToken }}" placeholder="the token from Code.gs"></input></div>
+                  <div style="display:flex;gap:8px">
+                    <button onClick="{{ saveSheet }}" class="btn btn-primary" style="flex:1;justify-content:flex-start;white-space:nowrap">Connect the Sheet</button>
+                    <button onClick="{{ syncNow }}" class="btn btn-secondary" style="justify-content:flex-start;white-space:nowrap">Sync now</button>
+                  </div>
+                </div>
+                <div style="border-top:2px solid var(--color-divider);padding:14px 16px 6px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">Recent changes</div>
+                <sc-for list="{{ changeLog }}" as="lg" hint-placeholder-count="3">
+                  <div style="border-top:1px solid var(--color-divider);padding:10px 16px;display:flex;gap:10px;align-items:baseline">
+                    <span style="flex:1;min-width:0;font-size:12px;line-height:1.45">{{ lg.text }}</span>
+                    <span style="flex:none;font-size:10px;color:var(--color-neutral-700);font-weight:800">{{ lg.who }} · {{ lg.when }}</span>
+                  </div>
+                </sc-for>
+                <div style="border-top:1px solid var(--color-divider);padding:14px 16px;font-size:11px;line-height:1.5;color:var(--color-neutral-700)">Bookings, contacts and the packing list are editable straight from their own screens while you're unlocked.</div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isMap }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <div style="height:210px;background:repeating-linear-gradient(135deg,var(--color-surface) 0 9px,var(--color-bg) 9px 18px);border-bottom:2px solid var(--color-divider);display:flex;align-items:flex-end;padding:12px">
+                  <span style="font-family:ui-monospace,Menlo,monospace;font-size:10px;background:var(--color-text);color:var(--color-bg);padding:4px 7px">MAP OF SAN JUAN + DAY-TRIP PINS GOES HERE</span>
+                </div>
+                <sc-for list="{{ places }}" as="pl" hint-placeholder-count="4">
+                  <div style="border-bottom:1px solid var(--color-divider);padding:12px 16px;display:flex;gap:10px;align-items:center">
+                    <div style="flex:1;min-width:0">
+                      <div style="font-size:14px;font-weight:800">{{ pl.name }}</div>
+                      <div style="font-size:11px;color:var(--color-neutral-700);margin-top:2px">{{ pl.note }}</div>
+                    </div>
+                    <a class="btn btn-secondary" href="{{ pl.href }}" style="flex:none;padding:8px 11px">Directions</a>
+                  </div>
+                </sc-for>
+                <div style="padding:14px 16px;font-size:11px;line-height:1.5;color:var(--color-neutral-700)">Download the offline map before we leave — Condado, Old San Juan, El Yunque and Fajardo.</div>
+              </div>
+            </sc-if>
+
+          </div>
+
+          <sc-if value="{{ isChat }}" hint-placeholder-val="{{ false }}">
+            <div style="flex:none;border-top:2px solid var(--color-divider);padding:10px 12px;display:flex;gap:8px;align-items:center;background:var(--color-bg)">
+              <input class="input" value="{{ draft }}" onChange="{{ onDraft }}" onKeyDown="{{ onDraftKey }}" placeholder="Say something to the family" style="flex:1"></input>
+              <button onClick="{{ sendMsg }}" class="btn btn-primary" style="flex:none">Send</button>
+            </div>
+          </sc-if>
+
+          <div style="flex:none;display:flex;border-top:2px solid var(--color-divider);padding-bottom:22px;background:var(--color-bg)">
+            <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+              <button onClick="{{ t.onPick }}" style="flex:1;min-width:0;background:{{ t.bg }};color:{{ t.fg }};border:0;border-right:1px solid var(--color-divider);padding:10px 7px 9px;font-family:inherit;font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-align:left;cursor:pointer">{{ t.label }}</button>
+            </sc-for>
+          </div>
+
+          <sc-if value="{{ lockOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;inset:0;z-index:80;background:color-mix(in srgb,#16332E 55%,transparent);display:flex;align-items:flex-end">
+              <div style="width:100%;background:var(--color-bg);border-top:3px solid var(--color-text);padding:16px 16px 30px">
+                <div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">Grown-up access</div>
+                <sc-if value="{{ isUnlocked }}" hint-placeholder-val="{{ false }}">
+                  <div>
+                    <div style="font-size:20px;font-weight:800;line-height:1.15;margin-top:5px">You're unlocked</div>
+                    <div style="font-size:12px;color:var(--color-neutral-700);margin-top:8px;line-height:1.5">Lock it back up and the app goes read-only for everyone on this phone.</div>
+                    <div style="display:flex;gap:8px;margin-top:14px">
+                      <button onClick="{{ signOut }}" class="btn btn-primary" style="flex:1;justify-content:flex-start">Lock the app</button>
+                      <button onClick="{{ closeLock }}" class="btn btn-secondary" style="justify-content:flex-start">Stay unlocked</button>
+                    </div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ codeNeeded }}" hint-placeholder-val="{{ true }}">
+                  <div>
+                    <div style="font-size:20px;font-weight:800;line-height:1.15;margin-top:5px">Enter the family passcode</div>
+                    <div style="font-size:12px;color:var(--color-neutral-700);margin-top:8px;line-height:1.5">Mom and Dad only. Everyone else can read everything, they just can't change it.</div>
+                    <div class="field" style="margin-top:12px"><label>Passcode</label><input class="input" type="password" inputmode="numeric" value="{{ code }}" onChange="{{ onCode }}" onKeyDown="{{ onCodeKey }}" placeholder="4 digits"></input></div>
+                    <sc-if value="{{ codeErr }}" hint-placeholder-val="{{ false }}">
+                      <div style="font-size:12px;font-weight:800;color:var(--color-accent-700);margin-top:8px">That's not it. Try again.</div>
+                    </sc-if>
+                    <div style="display:flex;gap:8px;margin-top:14px">
+                      <button onClick="{{ submitCode }}" class="btn btn-primary" style="flex:1;justify-content:flex-start">Unlock editing</button>
+                      <button onClick="{{ closeLock }}" class="btn btn-secondary" style="justify-content:flex-start">Cancel</button>
+                    </div>
+                  </div>
+                </sc-if>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ editing }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;inset:0;z-index:70;background:color-mix(in srgb,#16332E 55%,transparent);display:flex;align-items:flex-end">
+              <div style="width:100%;background:var(--color-bg);border-top:3px solid var(--color-text);padding:16px 16px 30px">
+                <div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">{{ editKicker }}</div>
+                <div style="font-size:20px;font-weight:800;line-height:1.15;margin-top:5px">{{ editTitle }}</div>
+                <sc-if value="{{ canEdit }}" hint-placeholder-val="{{ true }}">
+                  <div style="margin-top:12px">
+                    <div class="field"><label>{{ editLabel }}</label><input class="input" value="{{ editDraft }}" onChange="{{ onEditDraft }}" onKeyDown="{{ onEditKey }}" placeholder="{{ editPlaceholder }}"></input></div>
+                    <div style="font-size:11px;color:var(--color-neutral-700);margin-top:8px;line-height:1.45">Saved for everyone, and it'll show who added it. Leave it blank and it stays TBD.</div>
+                    <div style="display:flex;gap:8px;margin-top:14px">
+                      <button onClick="{{ saveEdit }}" class="btn btn-primary" style="flex:1;justify-content:flex-start">Save for everyone</button>
+                      <button onClick="{{ cancelEdit }}" class="btn btn-secondary" style="justify-content:flex-start">Cancel</button>
+                    </div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ readOnly }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:12px">
+                    <div style="font-size:13px;line-height:1.5;color:var(--color-neutral-700)">Only Mom and Dad can change bookings. Ask them, or send it to the group chat.</div>
+                    <div style="display:flex;gap:8px;margin-top:14px">
+                      <button onClick="{{ goChatFromEdit }}" class="btn btn-primary" style="flex:1;justify-content:flex-start">Ask in the group chat</button>
+                      <button onClick="{{ cancelEdit }}" class="btn btn-secondary" style="justify-content:flex-start">Close</button>
+                    </div>
+                  </div>
+                </sc-if>
+              </div>
+            </div>
+          </sc-if>
+
+        </div>
+</x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;cardStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ledger&quot;,&quot;stub&quot;,&quot;poster&quot;],&quot;default&quot;:&quot;ledger&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Confirmation cards&quot;},&quot;phase&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;countdown&quot;,&quot;during&quot;],&quot;default&quot;:&quot;countdown&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Trip phase&quot;}}">
+const ACC = 'var(--color-accent)';
+const INK = 'var(--color-text)';
+const MUT = 'var(--color-neutral-700)';
+const BG = 'var(--color-bg)';
+const SURF = 'var(--color-surface)';
+
+const DAYS = [
+  { num: 'Day 1', date: 'Sat 2/13', title: 'Land in San Juan', sub: 'Check in, unpack once, sunset walk on the beach.',
+    events: [
+      { time: 'TBD', title: 'Flight to SJU', note: 'Nonstop if we can get one. Landing time drives the whole first day.', field: 'flightOut', fieldLabel: 'Flight no.' },
+      { time: '4:00 PM', title: 'Check in at the home base', note: 'Still choosing between Condado and Isla Verde.', field: 'hotelConf', fieldLabel: 'Confirmation' },
+      { time: '6:30 PM', title: 'Beach walk, then dinner nearby', note: 'No plans, no reservation. Whatever is open and close.', remind: 'd1dinner', remindLabel: 'Nudge me an hour before' }
+    ] },
+  { num: 'Day 2', date: 'Sun 2/14', title: 'Old San Juan', sub: 'Two 16th-century forts, colored streets, the umbrella alley. All walkable.',
+    events: [
+      { time: '9:30 AM', title: 'Castillo San Felipe del Morro', note: 'National Park Service site — one ticket covers both forts for 24 hours.' },
+      { time: '12:30 PM', title: 'Lunch in the old city', note: 'Mofongo somewhere with shade.' },
+      { time: '2:30 PM', title: 'Castillo San Cristóbal', note: 'Fewer crowds, tunnels the girls will like.' },
+      { time: '5:00 PM', title: 'Paseo de la Princesa', note: 'Easy walk back along the wall at golden hour.' }
+    ] },
+  { num: 'Day 3', date: 'Mon 2/15', title: 'Beach and pool, no plans', sub: 'A day to actually do nothing. The whole point of a home-base trip.',
+    events: [
+      { time: 'All day', title: 'Beach, pool, repeat', note: 'First thing to trim if we are short on vacation days.' },
+      { time: '7:00 PM', title: 'Dinner, somebody else picks', note: 'Rotating: Cora chooses tonight.' }
+    ] },
+  { num: 'Day 4', date: 'Tue 2/16', title: 'El Yunque rainforest', sub: 'About 45 minutes out. Waterfalls, easy family trails, back by dinner.',
+    events: [
+      { time: '8:00 AM', title: 'Drive out to the forest', note: 'Rental car or a guided tour with transport included.', field: 'carConf', fieldLabel: 'Car conf.' },
+      { time: '9:30 AM', title: 'Big Tree Trail to La Mina Falls', note: '0.9 miles each way, paved, ends at a swimmable pool. Day-use pass needed in high season.', field: 'yunquePass', fieldLabel: 'Pass no.' },
+      { time: '12:00 PM', title: 'Yokahú Tower', note: 'Short climb, view across the canopy to the ocean.' },
+      { time: '1:30 PM', title: 'Las Paylas natural water slides', note: 'Volcanic rock chutes near Luquillo. The one the girls will talk about.', remind: 'd4slides', remindLabel: 'Nudge me an hour before' }
+    ] },
+  { num: 'Day 5', date: 'Wed 2/17', title: 'Fajardo and Culebra', sub: 'The clearest water near San Juan. Full day out, back to our own beds.',
+    events: [
+      { time: '7:15 AM', title: 'Drive to Fajardo', note: 'About an hour east.' },
+      { time: '9:00 AM', title: 'Catamaran to Icacos, or the ferry to Flamenco', note: 'The catamaran is the reliable option with two kids. The public ferry is cheap but sells out.', field: 'boatConf', fieldLabel: 'Boat conf.' },
+      { time: '4:30 PM', title: 'Back to San Juan', note: 'Sunburned and quiet.' }
+    ] },
+  { num: 'Day 6', date: 'Thu 2/18', title: 'Slow morning, then the glowing bay', sub: 'Pool in the morning, evening kayak through bioluminescent water at Laguna Grande.',
+    events: [
+      { time: 'Morning', title: 'Nothing scheduled', note: 'Pool, or a spa hour for Mom and Dad.' },
+      { time: '6:30 PM', title: 'Bio bay kayak tour', note: 'Kayaking Puerto Rico, Laguna Grande. Permit-capped and sells out near the new moon.', field: 'bioConf', fieldLabel: 'Confirmation', remind: 'd6bio', remindLabel: 'Nudge me two hours before' }
+    ] },
+  { num: 'Day 7', date: 'Fri 2/19', title: 'Fly home', sub: 'No rental car to return if we skip it. Check out and head to SJU.',
+    events: [
+      { time: '10:00 AM', title: 'Check out', note: 'Bags at the desk if the flight is late.' },
+      { time: 'TBD', title: 'Flight home from SJU', note: 'Isla Verde is 10 minutes from the airport if we want an easy morning.', field: 'flightHome', fieldLabel: 'Flight no.' }
+    ] }
+];
+
+const FIELDS = {
+  flightOut: { kicker: 'Flight · outbound', title: 'Home → San Juan (SJU)', label: 'Flight number', placeholder: 'e.g. B6 1373' },
+  flightHome: { kicker: 'Flight · home', title: 'San Juan (SJU) → home', label: 'Flight number', placeholder: 'e.g. B6 1264' },
+  flightConf: { kicker: 'Flight · both ways', title: 'Airline confirmation', label: 'Confirmation code', placeholder: 'e.g. XQ4RT2' },
+  hotelConf: { kicker: 'Home base · 6 nights', title: 'Hotel confirmation', label: 'Confirmation number', placeholder: 'e.g. 8842-119' },
+  hotelPick: { kicker: 'Home base · 6 nights', title: 'Which hotel are we booking?', label: 'Hotel', placeholder: 'La Concha / Courtyard / Marriott' },
+  carConf: { kicker: 'Rental car · optional', title: 'Rental car confirmation', label: 'Confirmation number', placeholder: 'e.g. 5591203US' },
+  bioConf: { kicker: 'Tour · Thu Feb 18', title: 'Bio bay kayak, Laguna Grande', label: 'Confirmation number', placeholder: 'e.g. KPR-4471' },
+  boatConf: { kicker: 'Tour · Wed Feb 17', title: 'Catamaran or ferry to Culebra', label: 'Confirmation number', placeholder: 'e.g. CAT-2210' },
+  yunquePass: { kicker: 'Tour · Tue Feb 16', title: 'La Mina Falls day-use pass', label: 'Pass number', placeholder: 'recreation.gov code' },
+  coraPhone: { kicker: 'Crew', title: 'Cora\u2019s phone', label: 'Phone number', placeholder: '(555) 000-0000' },
+  marPhone: { kicker: 'Crew', title: 'Mae\u2019s phone', label: 'Phone number', placeholder: '(555) 000-0000' },
+  hotelPhone: { kicker: 'Crew', title: 'Hotel front desk', label: 'Phone number', placeholder: '(787) 000-0000' },
+  tourPhone: { kicker: 'Crew', title: 'Tour operator', label: 'Phone number', placeholder: '(787) 000-0000' }
+};
+
+const PACK = [
+  { id: 'sun', label: 'Reef-safe sunscreen', note: 'Required at El Yunque\u2019s swimming holes.' },
+  { id: 'rain', label: 'Light rain layer, everyone', note: 'It is a rainforest. Afternoon showers most days.' },
+  { id: 'shoes', label: 'Water shoes', note: 'Las Paylas rock is slick.' },
+  { id: 'dry', label: 'Dry clothes for the bio bay', note: 'You will get wet in the kayak.' },
+  { id: 'snorkel', label: 'Snorkel masks', note: 'Rentals on the catamaran, but ours fit better.' },
+  { id: 'bag', label: 'Dry bag for phones', note: 'Boat day and slide day.' },
+  { id: 'chargers', label: 'Chargers and a battery pack', note: 'No adapters needed. Same plugs as home.' },
+  { id: 'meds', label: 'Motion sickness pills', note: 'For the catamaran.' },
+  { id: 'ids', label: 'IDs for Jerad and Megan', note: 'No passports. Puerto Rico is a US territory.' }
+];
+
+const NOTES = [
+  { who: 'Dad', title: 'Book the bio bay the day dates are final', body: 'Tours are permit-capped and sell out around the new moon. This is the one thing that cannot wait.' },
+  { who: 'Mom', title: 'Condado or Isla Verde?', body: 'Condado for walking to dinner, Isla Verde for ten minutes to the airport and a quieter beach. I lean Condado.' },
+  { who: 'Dad', title: 'Car only for two days', body: 'Taxis cover Old San Juan and the beach. Renting just for the El Yunque and Fajardo days may be cheaper than the week.' }
+];
+
+const PLACES = [
+  { name: 'Home base, San Juan', note: 'Address lands here once we book.', q: 'Condado San Juan Puerto Rico' },
+  { name: 'Castillo San Felipe del Morro', note: 'Old San Juan · 20 min by taxi', q: 'Castillo San Felipe del Morro' },
+  { name: 'El Yunque, Big Tree Trail', note: '45 min drive east', q: 'Big Tree Trail El Yunque' },
+  { name: 'Laguna Grande, Fajardo', note: '1 hr drive · evening kayak', q: 'Laguna Grande Fajardo' }
+];
+
+class Component extends DCLogic {
+  state = {
+    screen: 'home', prev: null, dayIx: 3, bookTab: 'flights',
+    unlocked: false, lockOpen: false, code: '', codeErr: false,
+    days: DAYS.map(d => Object.assign({}, d, { events: d.events.slice() })),
+    log: [{ who: 'Dad', when: 'Aug 30', text: 'Penciled in Feb 13–19 and added the bio bay confirmation' }],
+    adminDay: null, ne: { time: '', title: '', note: '' },
+    sync: 'demo', queued: 0, lastSync: null, sheetUrl: '', sheetToken: '',
+    vals: { bioConf: 'KPR-4471' }, packed: { sun: true, ids: true },
+    reminders: { d6bio: true }, edit: null, editDraft: '', draft: '',
+    msgs: [
+      { who: 'Dad', when: '9:12 AM', text: 'Flights are the only thing standing between us and this trip. Looking at Feb 13.', mine: true },
+      { who: 'Mom', when: '9:40 AM', text: 'February works for me. Can we do Condado so we can walk to dinner?', mine: false },
+      { who: 'Cora', when: '4:02 PM', text: 'WATER SLIDES. That is all.', mine: false }
+    ],
+    settings: { offline: true, remind: true, quiet: false },
+    now: Date.now()
+  };
+
+  componentDidMount() {
+    this.t = setInterval(() => this.setState({ now: Date.now() }), 1000);
+    import('./sheet-api.js').then(api => {
+      this.api = api;
+      const conf = api.loadConfig();
+      this.setState({ sheetUrl: conf.endpoint || '', sheetToken: conf.token || '' });
+      if (api.isLive()) this.pull();
+    }).catch(() => { this.setState({ sync: 'demo' }); });
+  }
+  componentWillUnmount() { clearInterval(this.t); }
+
+  pull() {
+    if (!this.api) return;
+    this.setState({ sync: 'loading' });
+    this.api.load().then(res => {
+      if (res.data) this.absorb(res.data);
+      this.setState({
+        sync: res.source === 'sheet' ? 'synced' : res.source === 'cache' ? 'offline' : 'demo',
+        lastSync: res.source === 'sheet' ? 'just now' : this.state.lastSync,
+        queued: this.api.queueLength()
+      });
+    });
+  }
+
+  // Sheet rows → the shapes the screens already render.
+  absorb(data) {
+    const next = {};
+    if (data.days && data.days.length) {
+      next.days = data.days.map(d => ({
+        id: d.id, num: d.num, date: d.date, title: d.title, sub: d.sub,
+        events: (data.events || []).filter(e => String(e.dayId) === String(d.id)).map(e => ({
+          id: e.id, time: e.time, title: e.title, note: e.note,
+          field: e.field || null, fieldLabel: e.fieldLabel || 'Confirmation',
+          remind: e.remind || null, remindLabel: e.remindLabel || 'Nudge me an hour before'
+        }))
+      }));
+    }
+    if (data.fields) {
+      const vals = {};
+      Object.keys(data.fields).forEach(k => { if (data.fields[k]) vals[k] = String(data.fields[k]); });
+      next.vals = vals;
+    }
+    if (data.packing && data.packing.length) {
+      const packed = {};
+      data.packing.forEach(p => { packed[p.id] = p.packed === true || p.packed === 'TRUE'; });
+      next.packed = packed;
+    }
+    if (data.messages && data.messages.length) {
+      next.msgs = data.messages.map(m => ({ who: m.who, when: m.when, text: m.text, mine: m.who === 'Dad' || m.who === 'Megan' }));
+    }
+    if (data.changes && data.changes.length) {
+      next.log = data.changes.map(c => ({ who: c.who || 'app', when: String(c.timestamp || '').slice(0, 10), text: c.text }));
+    }
+    this.setState(next);
+  }
+
+  send(op) {
+    if (!this.api || !this.api.isLive()) return;
+    this.setState({ sync: 'saving' });
+    this.api.push(Object.assign({ who: 'Dad' }, op)).then(res => {
+      this.setState({ sync: res.ok ? 'synced' : res.demo ? 'demo' : 'queued', queued: this.api.queueLength(), lastSync: res.ok ? 'just now' : this.state.lastSync });
+    });
+  }
+
+  go = (screen, extra) => this.setState(s => ({ screen, prev: s.screen, ...(extra || {}) }));
+  openEdit = (key) => this.setState(s => ({ edit: key, editDraft: s.vals[key] || '' }));
+
+  val = (k) => this.state.vals[k] || '';
+  tbd = (k) => !this.state.vals[k];
+
+  renderVals() {
+    const st = this.state;
+    const style = this.props.cardStyle || 'ledger';
+    const phase = this.props.phase || 'countdown';
+    const adult = st.unlocked;
+    const DAYS = st.days;
+    const dep = new Date('2027-02-13T09:00:00-04:00').getTime();
+    const ms = Math.max(0, dep - st.now);
+    const days = Math.floor(ms / 86400000);
+    const pad = (n) => String(n).padStart(2, '0');
+    const clock = pad(Math.floor(ms / 3600000) % 24) + ':' + pad(Math.floor(ms / 60000) % 60) + ':' + pad(Math.floor(ms / 1000) % 60);
+
+    const tabDefs = [
+      ['home', phase === 'during' ? 'Today' : 'Countdown'],
+      ['days', 'Days'], ['book', 'Confirm'], ['crew', 'Crew'], ['more', 'More']
+    ].concat(st.unlocked ? [['admin', 'Admin']] : []);
+    const activeTab = ['home', 'days', 'book', 'crew', 'more', 'admin'].includes(st.screen) ? st.screen
+      : (st.screen === 'day' ? 'days' : ['packing', 'chat', 'notes', 'map'].includes(st.screen) ? 'more' : 'home');
+
+    const titles = {
+      home: phase === 'during' ? 'Today' : 'Countdown', days: 'Seven days, one bed', day: (DAYS[st.dayIx] || DAYS[0]).num,
+      book: 'Confirmations', crew: 'Who to call', more: 'Everything else', admin: 'Admin',
+      packing: 'Packing list', chat: 'Family chat', notes: 'Shared notes', map: 'Maps'
+    };
+
+    const bookKeys = { flights: ['flightOut', 'flightHome', 'flightConf'], hotel: ['hotelPick', 'hotelConf'], tours: ['bioConf', 'boatConf', 'yunquePass'], car: ['carConf'] };
+    const tracked = ['flightOut', 'flightHome', 'flightConf', 'hotelPick', 'hotelConf', 'bioConf', 'boatConf', 'carConf'];
+    const bookedCount = tracked.filter(k => !this.tbd(k)).length;
+
+    const tagFor = (done) => done
+      ? { tag: 'DONE', tagBg: 'var(--color-neutral-200)', tagFg: 'var(--color-neutral-800)' }
+      : { tag: 'TBD', tagBg: 'var(--color-accent-200)', tagFg: 'var(--color-accent-800)' };
+
+    const openKeys = tracked.filter(k => this.tbd(k)).slice(0, 5);
+
+    const day = DAYS[st.dayIx] || DAYS[0];
+
+    const bookingsFor = (tab) => {
+      const mk = (o) => Object.assign({
+        callLabel: 'Call', callHref: 'tel:+15550142201', editLabel: 'Add details',
+        onEdit: () => this.openEdit(o.key)
+      }, o);
+      if (tab === 'flights') return [
+        mk({ key: 'flightOut', kicker: 'Flight · outbound', title: 'Home → San Juan (SJU)', note: 'Domestic flight, no passports needed. Landing time sets up day one.',
+          rows: [['Flight no.', 'flightOut'], ['Confirmation', 'flightConf'], ['Seats', null]], editLabel: this.tbd('flightOut') ? 'Add flight no.' : 'Edit flight', callLabel: 'Call airline' }),
+        mk({ key: 'flightHome', kicker: 'Flight · home', title: 'San Juan (SJU) → home', note: 'Isla Verde is ten minutes from the airport if we want an easy last morning.',
+          rows: [['Flight no.', 'flightHome'], ['Confirmation', 'flightConf']], editLabel: this.tbd('flightHome') ? 'Add flight no.' : 'Edit flight', callLabel: 'Call airline' })
+      ];
+      if (tab === 'hotel') return [
+        mk({ key: 'hotelPick', kicker: 'Home base · 6 nights', title: this.val('hotelPick') || 'Three candidates, one bed', note: 'La Concha (Condado, walkable) · Courtyard Isla Verde (closest to SJU) · San Juan Marriott (full resort). Leaning La Concha.',
+          rows: [['Hotel', 'hotelPick'], ['Confirmation', 'hotelConf'], ['Front desk', 'hotelPhone']], editLabel: this.tbd('hotelPick') ? 'Pick the hotel' : 'Change hotel', callLabel: 'Call front desk' })
+      ];
+      if (tab === 'tours') return [
+        mk({ key: 'bioConf', kicker: 'Tour · Thu Feb 18, 6:30 PM', title: 'Bio bay kayak · Laguna Grande', note: 'Kayaking Puerto Rico · 4 paddlers. Permit-capped, sells out near the new moon.',
+          rows: [['Confirmation', 'bioConf'], ['Operator', 'tourPhone']], editLabel: this.tbd('bioConf') ? 'Add confirmation' : 'Edit booking', callLabel: 'Call operator' }),
+        mk({ key: 'boatConf', kicker: 'Tour · Wed Feb 17', title: 'Catamaran to Icacos, or Culebra ferry', note: 'Catamaran is the reliable one with two kids. The public ferry is cheap but sells out.',
+          rows: [['Confirmation', 'boatConf'], ['Meeting point', null]], editLabel: 'Add confirmation', callLabel: 'Call operator' }),
+        mk({ key: 'yunquePass', kicker: 'Tour · Tue Feb 16', title: 'La Mina Falls day-use pass', note: 'Book a day or two ahead on recreation.gov in high season.',
+          rows: [['Pass no.', 'yunquePass']], editLabel: 'Add pass number', callLabel: 'Call the forest office' })
+      ];
+      return [
+        mk({ key: 'carConf', kicker: 'Rental car · optional', title: 'Two days, not the whole week', note: 'Taxis cover Old San Juan and the beach. Rent for the El Yunque and Fajardo days if tour transport is not included.',
+          rows: [['Confirmation', 'carConf'], ['Pick-up', null]], editLabel: 'Add confirmation', callLabel: 'Call rental desk' })
+      ];
+    };
+
+    const raw = bookingsFor(st.bookTab);
+    const confKey = { flights: 'flightConf', hotel: 'hotelConf', tours: 'bioConf', car: 'carConf' }[st.bookTab];
+
+    const editMeta = FIELDS[st.edit] || FIELDS.flightOut;
+
+    return {
+      screenTitle: titles[st.screen] || 'Trip',
+      roleLabel: adult ? 'Admin · Dad' : 'View only',
+      lockChipBg: adult ? 'var(--color-accent-200)' : 'var(--color-neutral-200)',
+      lockChipFg: adult ? 'var(--color-accent-800)' : 'var(--color-neutral-800)',
+      lockChipLabel: adult ? 'UNLOCKED' : 'LOCKED',
+      toggleRole: () => this.setState({ lockOpen: true, code: '', codeErr: false }),
+
+      syncLabel: { demo: 'DEMO DATA', loading: 'LOADING…', saving: 'SAVING…', synced: 'SHEET SYNCED', queued: 'QUEUED · ' + st.queued, offline: 'OFFLINE COPY' }[st.sync] || 'DEMO DATA',
+      syncBg: st.sync === 'synced' ? 'var(--color-accent-200)' : 'var(--color-neutral-200)',
+      syncFg: st.sync === 'synced' ? 'var(--color-accent-800)' : 'var(--color-neutral-800)',
+      sheetUrl: st.sheetUrl, sheetToken: st.sheetToken,
+      onSheetUrl: (e) => this.setState({ sheetUrl: e.target.value }),
+      onSheetToken: (e) => this.setState({ sheetToken: e.target.value }),
+      saveSheet: () => {
+        if (!this.api) return;
+        this.api.saveConfig({ endpoint: this.state.sheetUrl.trim(), token: this.state.sheetToken.trim() });
+        this.pull();
+      },
+      syncNow: () => this.pull(),
+      sheetStatus: st.sync === 'synced' ? ('Connected. Last pull ' + (st.lastSync || 'just now') + '.')
+        : st.sync === 'queued' ? (st.queued + ' change(s) waiting for signal.')
+        : st.sync === 'offline' ? 'Showing the saved copy. Will sync when you have signal.'
+        : st.sync === 'loading' ? 'Reading the Sheet…'
+        : 'Not connected — running on built-in demo data.',
+
+      lockOpen: st.lockOpen, code: st.code, codeErr: st.codeErr,
+      isUnlocked: st.unlocked, codeNeeded: !st.unlocked,
+      onCode: (e) => this.setState({ code: e.target.value, codeErr: false }),
+      onCodeKey: (e) => { if (e.key === 'Enter') this.tryCode(); },
+      submitCode: () => this.tryCode(),
+      closeLock: () => this.setState({ lockOpen: false, code: '', codeErr: false }),
+      signOut: () => this.setState(s => ({ unlocked: false, lockOpen: false, code: '', screen: s.screen === 'admin' ? 'home' : s.screen })),
+      canBack: ['day', 'packing', 'chat', 'notes', 'map'].includes(st.screen),
+      goBack: () => this.setState(s => ({ screen: s.screen === 'day' ? 'days' : 'more' })),
+
+      tabs: tabDefs.map(([k, label]) => ({
+        label, onPick: () => this.go(k),
+        bg: activeTab === k ? INK : 'transparent', fg: activeTab === k ? BG : INK
+      })),
+
+      isCountdown: st.screen === 'home' && phase !== 'during',
+      isDuring: st.screen === 'home' && phase === 'during',
+      isDays: st.screen === 'days', isDay: st.screen === 'day', isBook: st.screen === 'book',
+      isCrew: st.screen === 'crew', isMore: st.screen === 'more', isPacking: st.screen === 'packing',
+      isAdmin: st.screen === 'admin',
+      adminDays: DAYS.map((d, i) => ({
+        num: d.num, date: d.date, title: d.title,
+        count: d.events.length + (d.events.length === 1 ? ' item' : ' items'),
+        open: st.adminDay === i,
+        rowBg: st.adminDay === i ? SURF : 'transparent',
+        onToggle: () => this.setState(s => ({ adminDay: s.adminDay === i ? null : i, ne: { time: '', title: '', note: '' } })),
+        events: d.events.map((e, j) => ({
+          time: e.time || 'TBD', title: e.title,
+          onDelete: () => this.removeEvent(i, j)
+        }))
+      })),
+      neTime: st.ne.time, neTitle: st.ne.title, neNote: st.ne.note,
+      onNeTime: (e) => this.setNe('time', e.target.value),
+      onNeTitle: (e) => this.setNe('title', e.target.value),
+      onNeNote: (e) => this.setNe('note', e.target.value),
+      addEvent: () => this.addEvent(),
+      addDay: () => this.addDay(),
+      changeLog: st.log,
+      isChat: st.screen === 'chat', isNotes: st.screen === 'notes', isMap: st.screen === 'map',
+
+      cdDays: days, cdClock: clock,
+      progressLabel: bookedCount + ' of ' + tracked.length + ' locked in',
+      progressCells: tracked.map(k => ({ bg: this.tbd(k) ? 'transparent' : ACC })),
+      openItems: openKeys.map(k => Object.assign({
+        title: FIELDS[k].title, note: FIELDS[k].label + ' · ' + (adult ? 'tap to fill in' : 'waiting on Mom or Dad'),
+        onEdit: () => this.openEdit(k)
+      }, tagFor(false))),
+
+      goDays: () => this.go('days'), goBook: () => this.go('book'), goCrew: () => this.go('crew'),
+      goPacking: () => this.go('packing'), goChat: () => this.go('chat'),
+
+      todayRest: [
+        { time: '4:30 PM', title: 'Back to the hotel', note: 'Rinse off, pool before dinner' },
+        { time: '7:00 PM', title: 'Dinner in Condado', note: 'Mae picks tonight' },
+        { time: 'Tomorrow', title: 'Fajardo boat day, 7:15 AM', note: 'Dry bag and motion pills by the door' }
+      ],
+
+      days: DAYS.map((d, i) => {
+        const open = d.events.filter(e => e.field && this.tbd(e.field)).length;
+        return Object.assign({ num: d.num, date: d.date, title: d.title, sub: d.sub, onOpen: () => this.go('day', { dayIx: i }) },
+          open ? { tag: open + ' TBD', tagBg: 'var(--color-accent-200)', tagFg: 'var(--color-accent-800)' }
+               : { tag: 'SET', tagBg: 'var(--color-neutral-200)', tagFg: 'var(--color-neutral-800)' });
+      }),
+
+      dayHead: day.num + ' · ' + day.date, dayTitle: day.title, daySub: day.sub,
+      dayEvents: day.events.map(e => ({
+        time: e.time, title: e.title, note: e.note,
+        hasField: !!e.field, fieldLabel: e.field ? e.fieldLabel : '',
+        fieldValue: e.field ? (this.val(e.field) || 'TBD') : '',
+        fieldColor: e.field && this.tbd(e.field) ? ACC : INK,
+        fieldBorder: e.field && this.tbd(e.field) ? ACC : INK,
+        onEdit: e.field ? () => this.openEdit(e.field) : null,
+        canRemind: !!e.remind, remindLabel: e.remindLabel || '',
+        remindBg: e.remind && st.reminders[e.remind] ? ACC : 'transparent',
+        remindBorder: e.remind && st.reminders[e.remind] ? ACC : 'var(--color-divider)',
+        onRemind: e.remind ? () => this.setState(s => ({ reminders: Object.assign({}, s.reminders, { [e.remind]: !s.reminders[e.remind] }) })) : null
+      })),
+
+      bookTabs: [['flights', 'Flights'], ['hotel', 'Hotel'], ['tours', 'Tours'], ['car', 'Car']].map(([k, label]) => ({
+        label, onPick: () => this.setState({ bookTab: k }),
+        bg: st.bookTab === k ? INK : 'transparent', fg: st.bookTab === k ? BG : INK
+      })),
+      styleLedger: style === 'ledger', styleStub: style === 'stub', stylePoster: style === 'poster',
+      bookings: raw.map(b => {
+        const done = !this.tbd(b.key);
+        const conf = this.val(confKey) || 'TBD';
+        return Object.assign({}, b, {
+          status: done ? (b.key === 'bioConf' ? 'CONFIRMED' : 'ON FILE') : 'NOT BOOKED',
+          tagBg: done ? 'var(--color-neutral-200)' : 'var(--color-accent-200)',
+          tagFg: done ? 'var(--color-neutral-800)' : 'var(--color-accent-800)',
+          conf, confColor: conf === 'TBD' ? ACC : INK,
+          rows: (b.rows || []).map(([label, key]) => ({
+            label, value: key ? (this.val(key) || 'TBD') : 'TBD',
+            color: key && !this.tbd(key) ? INK : ACC,
+            onEdit: () => this.openEdit(key || b.key)
+          }))
+        });
+      }),
+      bookFoot: bookedCount + ' of ' + tracked.length + ' details are in. Anything marked TBD is fair game for either of us to fill in — the app says who added it.',
+
+      contactGroups: [
+        { label: 'Us', people: [
+          { name: 'Jerad', role: 'Dad · books the flights', number: '(555) 014-2201', hasNumber: true, canText: true, tel: 'tel:+15550142201', sms: 'sms:+15550142201', numColor: INK },
+          { name: 'Megan', role: 'Mom · has the hotel login', number: '(555) 014-2202', hasNumber: true, canText: true, tel: 'tel:+15550142202', sms: 'sms:+15550142202', numColor: INK },
+          { name: 'Cora', role: '14', number: this.val('coraPhone') || 'TBD', hasNumber: !this.tbd('coraPhone'), canText: !this.tbd('coraPhone'), hasField: this.tbd('coraPhone'), tel: 'tel:' + this.val('coraPhone'), sms: 'sms:' + this.val('coraPhone'), numColor: this.tbd('coraPhone') ? ACC : INK, onEdit: () => this.openEdit('coraPhone') },
+          { name: 'Mae', role: '11', number: this.val('marPhone') || 'TBD', hasNumber: !this.tbd('marPhone'), canText: !this.tbd('marPhone'), hasField: this.tbd('marPhone'), tel: 'tel:' + this.val('marPhone'), sms: 'sms:' + this.val('marPhone'), numColor: this.tbd('marPhone') ? ACC : INK, onEdit: () => this.openEdit('marPhone') }
+        ] },
+        { label: 'On the ground', people: [
+          { name: this.val('hotelPick') || 'Hotel front desk', role: 'Home base · 6 nights', number: this.val('hotelPhone') || 'TBD', hasNumber: !this.tbd('hotelPhone'), hasField: this.tbd('hotelPhone'), tel: 'tel:' + this.val('hotelPhone'), numColor: this.tbd('hotelPhone') ? ACC : INK, onEdit: () => this.openEdit('hotelPhone') },
+          { name: 'Kayaking Puerto Rico', role: 'Bio bay tour · Thu Feb 18', number: this.val('tourPhone') || 'TBD', hasNumber: !this.tbd('tourPhone'), hasField: this.tbd('tourPhone'), tel: 'tel:' + this.val('tourPhone'), numColor: this.tbd('tourPhone') ? ACC : INK, onEdit: () => this.openEdit('tourPhone') },
+          { name: 'Airline', role: 'Flights both ways', number: '(555) 014-9000', hasNumber: true, tel: 'tel:+15550149000', numColor: INK }
+        ] }
+      ],
+
+      moreItems: [
+        { label: 'Packing list', note: PACK.filter(p => st.packed[p.id]).length + ' of ' + PACK.length + ' packed', onOpen: () => this.go('packing') },
+        { label: 'Family chat', note: st.msgs.length + ' messages · last from ' + st.msgs[st.msgs.length - 1].who, onOpen: () => this.go('chat') },
+        { label: 'Shared notes', note: 'Decisions we still owe each other', onOpen: () => this.go('notes') },
+        { label: 'Maps and directions', note: 'Saved for offline before we fly', onOpen: () => this.go('map') },
+        { label: 'Weather', note: 'Typical mid-February: 82° / 71°', onOpen: () => this.go('home') }
+      ],
+      settings: [
+        { key: 'offline', label: 'Keep everything offline', note: 'Opens with no signal, syncs on wifi' },
+        { key: 'remind', label: 'Nudge before each event', note: 'One hour ahead, everyone gets it' },
+        { key: 'quiet', label: 'Quiet hours 10pm–7am', note: 'Except flight changes' },
+        { key: 'lockOnClose', label: 'Re-lock when the app closes', note: 'Passcode again next time you edit' }
+      ].map(s => ({
+        label: s.label, note: s.note,
+        onToggle: () => this.setState(p => ({ settings: Object.assign({}, p.settings, { [s.key]: !p.settings[s.key] }) })),
+        trackBg: st.settings[s.key] ? ACC : 'transparent',
+        trackBorder: st.settings[s.key] ? ACC : 'var(--color-divider)',
+        knob: st.settings[s.key] ? BG : MUT,
+        justify: st.settings[s.key] ? 'flex-end' : 'flex-start'
+      })),
+
+      packedLabel: PACK.filter(p => st.packed[p.id]).length + ' of ' + PACK.length + ' packed',
+      packList: PACK.map(p => ({
+        label: p.label, note: p.note,
+        onToggle: () => this.setState(s => {
+          this.send({ type: 'setPacked', id: p.id, packed: !s.packed[p.id] });
+          return { packed: Object.assign({}, s.packed, { [p.id]: !s.packed[p.id] }) };
+        }),
+        boxBg: st.packed[p.id] ? ACC : 'transparent',
+        boxBorder: st.packed[p.id] ? ACC : 'var(--color-divider)',
+        checkColor: st.packed[p.id] ? BG : 'transparent',
+        strike: st.packed[p.id] ? 'line-through' : 'none'
+      })),
+
+      messages: st.msgs.map(m => ({
+        who: m.who, when: m.when, text: m.text,
+        align: m.mine ? 'flex-end' : 'flex-start',
+        bg: m.mine ? ACC : SURF, fg: m.mine ? BG : INK,
+        edge: m.mine ? INK : ACC
+      })),
+      draft: st.draft,
+      onDraft: (e) => this.setState({ draft: e.target.value }),
+      onDraftKey: (e) => { if (e.key === 'Enter') this.sendNow(); },
+      sendMsg: () => this.sendNow(),
+
+      notes: NOTES,
+      addNote: () => this.go('chat'),
+      places: PLACES.map(p => ({ name: p.name, note: p.note, href: 'https://maps.google.com/?q=' + encodeURIComponent(p.q) })),
+
+      editing: !!st.edit, canEdit: !!st.edit && adult, readOnly: !!st.edit && !adult,
+      editKicker: editMeta.kicker, editTitle: editMeta.title, editLabel: editMeta.label,
+      editPlaceholder: editMeta.placeholder, editDraft: st.editDraft,
+      onEditDraft: (e) => this.setState({ editDraft: e.target.value }),
+      onEditKey: (e) => { if (e.key === 'Enter') this.commitEdit(); },
+      saveEdit: () => this.commitEdit(),
+      cancelEdit: () => this.setState({ edit: null, editDraft: '' }),
+      goChatFromEdit: () => this.setState({ edit: null, screen: 'chat' })
+    };
+  }
+
+  tryCode() {
+    if (this.state.code.trim() === '8205') this.setState({ unlocked: true, lockOpen: false, code: '', codeErr: false });
+    else this.setState({ codeErr: true });
+  }
+
+  setNe(k, v) { this.setState(s => ({ ne: Object.assign({}, s.ne, { [k]: v }) })); }
+
+  logIt(text, s) { return [{ who: 'Dad', when: 'just now', text }].concat(s.log).slice(0, 8); }
+
+  addEvent() {
+    const i = this.state.adminDay, ne = this.state.ne;
+    if (i === null || !ne.title.trim()) return;
+    this.setState(s => {
+      const days = s.days.slice();
+      const d = Object.assign({}, days[i]);
+      d.events = d.events.concat([{ time: ne.time.trim() || 'TBD', title: ne.title.trim(), note: ne.note.trim() }]);
+      days[i] = d;
+      this.send({ type: 'addEvent', dayId: d.id || d.num, time: ne.time.trim() || 'TBD', title: ne.title.trim(), note: ne.note.trim() });
+      return { days, ne: { time: '', title: '', note: '' }, log: this.logIt('Added "' + ne.title.trim() + '" to ' + d.num, s) };
+    });
+  }
+
+  removeEvent(i, j) {
+    this.setState(s => {
+      const days = s.days.slice();
+      const d = Object.assign({}, days[i]);
+      const gone = d.events[j];
+      d.events = d.events.filter((_, x) => x !== j);
+      days[i] = d;
+      this.send({ type: 'removeEvent', id: gone.id, dayId: d.id || d.num });
+      return { days, log: this.logIt('Removed "' + gone.title + '" from ' + d.num, s) };
+    });
+  }
+
+  addDay() {
+    this.setState(s => {
+      const n = s.days.length + 1;
+      const days = s.days.concat([{ num: 'Day ' + n, date: 'TBD', title: 'Untitled day', sub: 'Tap to fill this in.', events: [] }]);
+      this.send({ type: 'addDay', num: 'Day ' + n, date: 'TBD', title: 'Untitled day' });
+      return { days, adminDay: days.length - 1, log: this.logIt('Added Day ' + n, s) };
+    });
+  }
+
+  commitEdit() {
+    const k = this.state.edit, v = this.state.editDraft.trim();
+    const label = (FIELDS[k] || {}).label || 'the field';
+    this.send({ type: 'setField', key: k, value: v });
+    this.setState(s => ({
+      vals: Object.assign({}, s.vals, v ? { [k]: v } : { [k]: undefined }),
+      edit: null, editDraft: '',
+      log: this.logIt(v ? label + ' set to ' + v : label + ' cleared', s)
+    }));
+  }
+
+  sendNow() {
+    const t = this.state.draft.trim();
+    if (!t) return;
+    const who = this.state.unlocked ? 'Dad' : 'Cora';
+    this.send({ type: 'addMessage', who, text: t });
+    this.setState(s => ({ msgs: s.msgs.concat([{ who, when: 'now', text: t, mine: s.unlocked }]), draft: '' }));
+  }
+}
+
+</script>
+</body>
+</html>
