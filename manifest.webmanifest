@@ -1,7 +1,7 @@
 {
-  "name": "Salt Air, Slow Mornings",
-  "short_name": "PR Trip",
-  "description": "The Steinfeld family trip to Puerto Rico — itinerary, confirmations and contacts.",
+  "name": "Trip Planner",
+  "short_name": "Trip",
+  "description": "Shared itinerary, confirmations and contacts for our trip.",
   "start_url": "Trip.dc.html",
   "scope": "./",
   "display": "standalone",
