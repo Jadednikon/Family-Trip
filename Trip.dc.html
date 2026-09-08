@@ -7,7 +7,7 @@
 </head>
 <body>
 <x-dc>
-<helmet data-dc-atomics><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="PR Trip"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="theme-color" content="#744D1C"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png"><link rel="stylesheet" href="_ds/modernist-39659a5a-68d6-413e-90d3-205ce42d5fa0/styles.css"><script src="_ds/modernist-39659a5a-68d6-413e-90d3-205ce42d5fa0/_ds_bundle.js"></script><style>:root{--color-bg:#FBF3E3;--color-surface:#F5E9D2;--color-text:#16332E;--color-accent:#A5702C;--color-accent-2:#B8813C;--color-divider:color-mix(in srgb,#16332E 32%,transparent);--color-accent-100:#FCF3E3;--color-accent-200:#F5E4C6;--color-accent-300:#E9CD9B;--color-accent-400:#D4AC66;--color-accent-500:#BC8836;--color-accent-600:#8E5F23;--color-accent-700:#744D1C;--color-accent-800:#573A15;--color-accent-900:#3C2810;--color-neutral-100:#FBF6EC;--color-neutral-200:#F0E7D6;--color-neutral-300:#DED3BF;--color-neutral-400:#BFB4A0;--color-neutral-500:#9A9284;--color-neutral-600:#7A7669;--color-neutral-700:#4F5C53;--color-neutral-800:#2E4239;--color-neutral-900:#16332E}html,body{margin:0;height:100%;background:var(--color-bg);font-family:"Archivo",system-ui,sans-serif;-webkit-text-size-adjust:100%;overscroll-behavior:none}a{color:var(--color-accent-700);text-decoration:none}a:hover{color:var(--color-accent-800)}.btn-secondary,.btn-ghost{background:transparent}.appscroll::-webkit-scrollbar{width:0}</style></helmet>
+<helmet data-dc-atomics><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Trip App"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="theme-color" content="#744D1C"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png"><link rel="stylesheet" href="_ds/modernist-39659a5a-68d6-413e-90d3-205ce42d5fa0/styles.css"><script src="_ds/modernist-39659a5a-68d6-413e-90d3-205ce42d5fa0/_ds_bundle.js"></script><style>:root{--color-bg:#FBF3E3;--color-surface:#F5E9D2;--color-text:#16332E;--color-accent:#A5702C;--color-accent-2:#B8813C;--color-divider:color-mix(in srgb,#16332E 32%,transparent);--color-accent-100:#FCF3E3;--color-accent-200:#F5E4C6;--color-accent-300:#E9CD9B;--color-accent-400:#D4AC66;--color-accent-500:#BC8836;--color-accent-600:#8E5F23;--color-accent-700:#744D1C;--color-accent-800:#573A15;--color-accent-900:#3C2810;--color-neutral-100:#FBF6EC;--color-neutral-200:#F0E7D6;--color-neutral-300:#DED3BF;--color-neutral-400:#BFB4A0;--color-neutral-500:#9A9284;--color-neutral-600:#7A7669;--color-neutral-700:#4F5C53;--color-neutral-800:#2E4239;--color-neutral-900:#16332E}html,body{margin:0;height:100%;background:var(--color-bg);font-family:"Archivo",system-ui,sans-serif;-webkit-text-size-adjust:100%;overscroll-behavior:none}a{color:var(--color-accent-700);text-decoration:none}a:hover{color:var(--color-accent-800)}.btn-secondary,.btn-ghost{background:transparent}.appscroll::-webkit-scrollbar{width:0}</style></helmet>
 <div style="position:relative;height:100dvh;max-height:100dvh;width:100%;max-width:640px;margin:0 auto;display:flex;flex-direction:column;padding-top:calc(env(safe-area-inset-top,0px) + 10px);background:var(--color-bg);color:var(--color-text);font-family:'Archivo',system-ui,sans-serif;overflow:hidden">
 
           <div style="display:flex;align-items:center;gap:10px;padding:8px 16px 10px;border-bottom:2px solid var(--color-divider);flex:none">
@@ -17,7 +17,7 @@
               </button>
             </sc-if>
             <div style="min-width:0;flex:1">
-              <div style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent);font-weight:800">Salt air, slow mornings</div>
+              <div style="font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent);font-weight:800">{{ tagline }}</div>
               <div style="font-size:17px;font-weight:800;line-height:1.15;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ screenTitle }}</div>
             </div>
             <button onClick="{{ toggleRole }}" style="flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:3px;background:transparent;border:0;padding:0;cursor:pointer;font-family:inherit;color:var(--color-text)">
@@ -31,14 +31,14 @@
             <sc-if value="{{ isCountdown }}" hint-placeholder-val="{{ true }}">
               <div>
                 <div style="padding:22px 16px 20px;background:var(--color-accent-700);color:var(--color-bg)">
-                  <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;">Days until we land in San Juan</div>
+                  <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;">{{ countdownLabel }}</div>
                   <div style="display:flex;align-items:flex-end;gap:12px;margin-top:6px">
                     <div style="font-size:96px;font-weight:800;line-height:.82;letter-spacing:-.04em">{{ cdDays }}</div>
                     <div style="font-size:13px;font-weight:800;line-height:1.35;padding-bottom:8px;font-variant-numeric:tabular-nums">{{ cdClock }}<br><span style="font-weight:400">hrs · min · sec</span></div>
                   </div>
                   <div style="height:2px;background:var(--color-bg);opacity:.5;margin:16px 0 10px"></div>
                   <div style="display:flex;justify-content:space-between;gap:10px;font-size:12px;font-weight:800">
-                    <span>Sat Feb 13 → Fri Feb 19, 2027</span><span style="">7 days · 6 nights</span>
+                    <span>{{ tripDatesLabel }}</span><span style="">{{ tripLengthLabel }}</span>
                   </div>
                   <div style="font-size:11px;margin-top:3px">Penciled in. Nothing's paid for yet.</div>
                 </div>
@@ -75,7 +75,7 @@
                   <button onClick="{{ goCrew }}" class="btn btn-secondary btn-block" style="margin:0">Who to call</button>
                   <button onClick="{{ goPacking }}" class="btn btn-secondary btn-block" style="margin:0">Packing</button>
                 </div>
-                <div style="padding:8px 16px 20px;font-size:11px;line-height:1.5;color:var(--color-neutral-700)">Mid-February in San Juan runs about 82° / 71°, with brief afternoon showers in El Yunque. Not a forecast — just what to pack for.</div>
+                <div style="padding:8px 16px 20px;font-size:11px;line-height:1.5;color:var(--color-neutral-700)">Weather can shift the packing list — check the forecast for {{ destination }} closer to the trip.</div>
               </div>
             </sc-if>
 
@@ -83,20 +83,30 @@
               <div>
                 <div style="padding:16px;border-bottom:2px solid var(--color-divider)">
                   <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px">
-                    <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">Day 4 of 7 · Tue Feb 16</div>
-                    <div style="font-size:11px;font-weight:800;color:var(--color-neutral-700)">11:20 AM AST</div>
+                    <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">{{ duringDayLabel }}</div>
+                    <div style="font-size:11px;font-weight:800;color:var(--color-neutral-700)">{{ duringClock }}</div>
                   </div>
-                  <div style="font-size:30px;font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-top:6px">El Yunque rainforest</div>
+                  <div style="font-size:30px;font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-top:6px">{{ duringDayTitle }}</div>
                 </div>
-                <div style="padding:15px 16px;background:var(--color-accent-700);color:var(--color-bg)">
-                  <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;">Happening now</div>
-                  <div style="font-size:21px;font-weight:800;line-height:1.18;margin-top:5px">Big Tree Trail to La Mina Falls</div>
-                  <div style="font-size:12px;margin-top:5px;">0.9 miles each way, paved the whole way. Swim at the bottom.</div>
-                </div>
-                <div style="padding:12px 16px;border-bottom:1px solid var(--color-divider);display:flex;gap:12px;align-items:baseline">
-                  <div style="font-size:11px;font-weight:800;color:var(--color-accent);width:68px;flex:none">IN 2H 10M</div>
-                  <div style="flex:1"><div style="font-size:15px;font-weight:800">Las Paylas water slides</div><div style="font-size:11px;color:var(--color-neutral-700);margin-top:2px">1:30 PM · water shoes are in the blue bag</div></div>
-                </div>
+                <sc-if value="{{ hasCurrentEvent }}" hint-placeholder-val="{{ false }}">
+                  <div style="padding:15px 16px;background:var(--color-accent-700);color:var(--color-bg)">
+                    <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;">Happening now</div>
+                    <div style="font-size:21px;font-weight:800;line-height:1.18;margin-top:5px">{{ currentTitle }}</div>
+                    <div style="font-size:12px;margin-top:5px;">{{ currentNote }}</div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ noCurrentEvent }}" hint-placeholder-val="{{ true }}">
+                  <div style="padding:15px 16px;background:var(--color-accent-700);color:var(--color-bg)">
+                    <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;">Today</div>
+                    <div style="font-size:21px;font-weight:800;line-height:1.18;margin-top:5px">{{ duringDaySub }}</div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ hasNextEvent }}" hint-placeholder-val="{{ false }}">
+                  <div style="padding:12px 16px;border-bottom:1px solid var(--color-divider);display:flex;gap:12px;align-items:baseline">
+                    <div style="font-size:11px;font-weight:800;color:var(--color-accent);width:68px;flex:none">{{ nextBadge }}</div>
+                    <div style="flex:1"><div style="font-size:15px;font-weight:800">{{ nextTitle }}</div><div style="font-size:11px;color:var(--color-neutral-700);margin-top:2px">{{ nextNote }}</div></div>
+                  </div>
+                </sc-if>
                 <sc-for list="{{ todayRest }}" as="ev" hint-placeholder-count="3">
                   <div style="padding:12px 16px;border-bottom:1px solid var(--color-divider);display:flex;gap:12px;align-items:baseline">
                     <div style="font-size:11px;font-weight:800;color:var(--color-neutral-700);width:68px;flex:none">{{ ev.time }}</div>
@@ -104,8 +114,8 @@
                   </div>
                 </sc-for>
                 <div style="padding:16px;display:grid;gap:8px">
-                  <button onClick="{{ goChat }}" class="btn btn-primary btn-block" style="margin:0">Tell everyone where we are</button>
-                  <button onClick="{{ goDays }}" class="btn btn-secondary btn-block" style="margin:0">See the whole week</button>
+                  <button onClick="{{ goNotes }}" class="btn btn-secondary btn-block" style="margin:0">Add a note about today</button>
+                  <button onClick="{{ goDays }}" class="btn btn-secondary btn-block" style="margin:0">See the whole trip</button>
                 </div>
               </div>
             </sc-if>
@@ -125,7 +135,7 @@
                     <span class="tag" style="flex:none;font-size:9px;letter-spacing:.08em;padding:3px 8px;background:{{ d.tagBg }};color:{{ d.tagFg }}">{{ d.tag }}</span>
                   </button>
                 </sc-for>
-                <div style="padding:14px 16px;font-size:11px;line-height:1.5;color:var(--color-neutral-700)">Tight on vacation days? The slow mornings on days 3 and 6 are the first things to trim.</div>
+                <div style="padding:14px 16px;font-size:11px;line-height:1.5;color:var(--color-neutral-700)">Tight on vacation days? Any day with nothing scheduled is the first thing to trim.</div>
               </div>
             </sc-if>
 
@@ -158,7 +168,7 @@
                   </div>
                 </sc-for>
                 <div style="padding:16px">
-                  <button onClick="{{ goChat }}" class="btn btn-secondary btn-block" style="margin:0">Ask the group about this day</button>
+                  <button onClick="{{ goNotes }}" class="btn btn-secondary btn-block" style="margin:0">Add a note about this day</button>
                 </div>
               </div>
             </sc-if>
@@ -270,7 +280,7 @@
                 </sc-for>
                 <div style="border-top:2px solid var(--color-divider);margin-top:14px;padding:14px 16px;display:flex;gap:10px;align-items:center">
                   <a class="btn btn-primary" href="tel:911" style="justify-content:flex-start">911</a>
-                  <span style="font-size:11px;color:var(--color-neutral-700);line-height:1.45">Puerto Rico is a US territory — 911 works and your phone plan does too. The 555 numbers are placeholders until we fill in the real ones.</span>
+                  <span style="font-size:11px;color:var(--color-neutral-700);line-height:1.45">For anything urgent, call 911. Everyone's real number lives in the Contacts tab of the Sheet — add, edit or remove people there.</span>
                 </div>
               </div>
             </sc-if>
@@ -322,17 +332,6 @@
               </div>
             </sc-if>
 
-            <sc-if value="{{ isChat }}" hint-placeholder-val="{{ false }}">
-              <div style="padding:14px 16px 6px;display:flex;flex-direction:column;gap:12px">
-                <sc-for list="{{ messages }}" as="m" hint-placeholder-count="4">
-                  <div style="display:flex;flex-direction:column;align-items:{{ m.align }}">
-                    <div style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:800">{{ m.who }} · {{ m.when }}</div>
-                    <div style="max-width:84%;margin-top:4px;padding:9px 11px;background:{{ m.bg }};color:{{ m.fg }};border-left:3px solid {{ m.edge }};font-size:13px;line-height:1.45">{{ m.text }}</div>
-                  </div>
-                </sc-for>
-              </div>
-            </sc-if>
-
             <sc-if value="{{ isNotes }}" hint-placeholder-val="{{ false }}">
               <div>
                 <sc-for list="{{ notes }}" as="n" hint-placeholder-count="3">
@@ -342,9 +341,7 @@
                     <div style="font-size:12px;color:var(--color-neutral-700);margin-top:4px;line-height:1.5">{{ n.body }}</div>
                   </div>
                 </sc-for>
-                <div style="padding:16px">
-                  <button onClick="{{ addNote }}" class="btn btn-secondary btn-block" style="margin:0">Add a note</button>
-                </div>
+                <div style="padding:14px 16px;font-size:11px;line-height:1.5;color:var(--color-neutral-700)">Add or edit notes directly in the Notes tab of the Sheet.</div>
               </div>
             </sc-if>
 
@@ -376,9 +373,9 @@
                         <div style="border-top:2px solid var(--color-divider);margin-top:10px;padding-top:12px;display:flex;flex-direction:column;gap:8px">
                           <div style="display:flex;gap:8px">
                             <div class="field" style="width:96px;flex:none"><label>Time</label><input class="input" value="{{ neTime }}" onChange="{{ onNeTime }}" placeholder="9:30 AM"></input></div>
-                            <div class="field" style="flex:1;min-width:0"><label>What are we doing?</label><input class="input" value="{{ neTitle }}" onChange="{{ onNeTitle }}" placeholder="Casa Bacardí tour"></input></div>
+                            <div class="field" style="flex:1;min-width:0"><label>What are we doing?</label><input class="input" value="{{ neTitle }}" onChange="{{ onNeTitle }}" placeholder="e.g. Kayak lesson"></input></div>
                           </div>
-                          <div class="field"><label>Note (optional)</label><input class="input" value="{{ neNote }}" onChange="{{ onNeNote }}" placeholder="Ferry across the bay, 20 minutes"></input></div>
+                          <div class="field"><label>Note (optional)</label><input class="input" value="{{ neNote }}" onChange="{{ onNeNote }}" placeholder="e.g. Meet in the lobby at 9"></input></div>
                           <button onClick="{{ addEvent }}" class="btn btn-primary btn-block" style="margin:0">Add to this day</button>
                         </div>
                       </div>
@@ -408,14 +405,14 @@
                     <span style="flex:none;font-size:10px;color:var(--color-neutral-700);font-weight:800">{{ lg.who }} · {{ lg.when }}</span>
                   </div>
                 </sc-for>
-                <div style="border-top:1px solid var(--color-divider);padding:14px 16px;font-size:11px;line-height:1.5;color:var(--color-neutral-700)">Bookings, contacts and the packing list are editable straight from their own screens while you're unlocked.</div>
+                <div style="border-top:1px solid var(--color-divider);padding:14px 16px;font-size:11px;line-height:1.5;color:var(--color-neutral-700)">Bookings and the packing list are editable straight from their own screens while you're unlocked. Days, contacts, notes and places are managed from the Sheet.</div>
               </div>
             </sc-if>
 
             <sc-if value="{{ isMap }}" hint-placeholder-val="{{ false }}">
               <div>
                 <div style="height:210px;background:repeating-linear-gradient(135deg,var(--color-surface) 0 9px,var(--color-bg) 9px 18px);border-bottom:2px solid var(--color-divider);display:flex;align-items:flex-end;padding:12px">
-                  <span style="font-family:ui-monospace,Menlo,monospace;font-size:10px;background:var(--color-text);color:var(--color-bg);padding:4px 7px">MAP OF SAN JUAN + DAY-TRIP PINS GOES HERE</span>
+                  <span style="font-family:ui-monospace,Menlo,monospace;font-size:10px;background:var(--color-text);color:var(--color-bg);padding:4px 7px">{{ mapPlaceholderLabel }}</span>
                 </div>
                 <sc-for list="{{ places }}" as="pl" hint-placeholder-count="4">
                   <div style="border-bottom:1px solid var(--color-divider);padding:12px 16px;display:flex;gap:10px;align-items:center">
@@ -426,18 +423,11 @@
                     <a class="btn btn-secondary" href="{{ pl.href }}" style="flex:none;padding:8px 11px">Directions</a>
                   </div>
                 </sc-for>
-                <div style="padding:14px 16px;font-size:11px;line-height:1.5;color:var(--color-neutral-700)">Download the offline map before we leave — Condado, Old San Juan, El Yunque and Fajardo.</div>
+                <div style="padding:14px 16px;font-size:11px;line-height:1.5;color:var(--color-neutral-700)">{{ mapFooterNote }}</div>
               </div>
             </sc-if>
 
           </div>
-
-          <sc-if value="{{ isChat }}" hint-placeholder-val="{{ false }}">
-            <div style="flex:none;border-top:2px solid var(--color-divider);padding:10px 12px;display:flex;gap:8px;align-items:center;background:var(--color-bg)">
-              <input class="input" value="{{ draft }}" onChange="{{ onDraft }}" onKeyDown="{{ onDraftKey }}" placeholder="Say something to the family" style="flex:1"></input>
-              <button onClick="{{ sendMsg }}" class="btn btn-primary" style="flex:none">Send</button>
-            </div>
-          </sc-if>
 
           <div style="flex:none;display:flex;border-top:2px solid var(--color-divider);padding-bottom:calc(env(safe-area-inset-bottom,0px) + 10px);background:var(--color-bg)">
             <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
@@ -461,9 +451,9 @@
                 </sc-if>
                 <sc-if value="{{ codeNeeded }}" hint-placeholder-val="{{ true }}">
                   <div>
-                    <div style="font-size:20px;font-weight:800;line-height:1.15;margin-top:5px">Enter the family passcode</div>
-                    <div style="font-size:12px;color:var(--color-neutral-700);margin-top:8px;line-height:1.5">Mom and Dad only. Everyone else can read everything, they just can't change it.</div>
-                    <div class="field" style="margin-top:12px"><label>Passcode</label><input class="input" type="password" inputmode="numeric" value="{{ code }}" onChange="{{ onCode }}" onKeyDown="{{ onCodeKey }}" placeholder="4 digits"></input></div>
+                    <div style="font-size:20px;font-weight:800;line-height:1.15;margin-top:5px">Enter the trip passcode</div>
+                    <div style="font-size:12px;color:var(--color-neutral-700);margin-top:8px;line-height:1.5">Trip admins only. Everyone else can read everything, they just can't change it.</div>
+                    <div class="field" style="margin-top:12px"><label>Passcode</label><input class="input" type="password" inputmode="numeric" value="{{ code }}" onChange="{{ onCode }}" onKeyDown="{{ onCodeKey }}" placeholder="digits"></input></div>
                     <sc-if value="{{ codeErr }}" hint-placeholder-val="{{ false }}">
                       <div style="font-size:12px;font-weight:800;color:var(--color-accent-700);margin-top:8px">That's not it. Try again.</div>
                     </sc-if>
@@ -471,7 +461,9 @@
                       <button onClick="{{ submitCode }}" class="btn btn-primary" style="flex:1;justify-content:flex-start">Unlock editing</button>
                       <button onClick="{{ closeLock }}" class="btn btn-secondary" style="justify-content:flex-start">Cancel</button>
                     </div>
-                    <div style="font-size:11px;color:var(--color-neutral-700);margin-top:12px;line-height:1.45">Demo passcode: 0213</div>
+                    <sc-if value="{{ showPasscodeHint }}" hint-placeholder-val="{{ true }}">
+                      <div style="font-size:11px;color:var(--color-neutral-700);margin-top:12px;line-height:1.45">Demo passcode: 0213. Set your own in the Trip tab's `passcode` column.</div>
+                    </sc-if>
                   </div>
                 </sc-if>
               </div>
@@ -495,10 +487,9 @@
                 </sc-if>
                 <sc-if value="{{ readOnly }}" hint-placeholder-val="{{ false }}">
                   <div style="margin-top:12px">
-                    <div style="font-size:13px;line-height:1.5;color:var(--color-neutral-700)">Only Mom and Dad can change bookings. Ask them, or send it to the group chat.</div>
+                    <div style="font-size:13px;line-height:1.5;color:var(--color-neutral-700)">Only trip admins can change this. Ask them to unlock the app, or edit it directly in the Sheet.</div>
                     <div style="display:flex;gap:8px;margin-top:14px">
-                      <button onClick="{{ goChatFromEdit }}" class="btn btn-primary" style="flex:1;justify-content:flex-start">Ask in the group chat</button>
-                      <button onClick="{{ cancelEdit }}" class="btn btn-secondary" style="justify-content:flex-start">Close</button>
+                      <button onClick="{{ cancelEdit }}" class="btn btn-primary" style="flex:1;justify-content:flex-start">Close</button>
                     </div>
                   </div>
                 </sc-if>
@@ -509,113 +500,125 @@
         </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;cardStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ledger&quot;,&quot;stub&quot;,&quot;poster&quot;],&quot;default&quot;:&quot;ledger&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Confirmation cards&quot;},&quot;phase&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;countdown&quot;,&quot;during&quot;],&quot;default&quot;:&quot;countdown&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Trip phase&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;cardStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ledger&quot;,&quot;stub&quot;,&quot;poster&quot;],&quot;default&quot;:&quot;ledger&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Confirmation cards&quot;}}">
 const ACC = 'var(--color-accent)';
 const INK = 'var(--color-text)';
 const MUT = 'var(--color-neutral-700)';
 const BG = 'var(--color-bg)';
 const SURF = 'var(--color-surface)';
+const DEFAULT_PASSCODE = '0213';
 
-const DAYS = [
-  { num: 'Day 1', date: 'Sat 2/13', title: 'Land in San Juan', sub: 'Check in, unpack once, sunset walk on the beach.',
+/* ── built-in sample trip ─────────────────────────────────────────────
+ * Shown until a Google Sheet is connected (Admin → Google Sheet). Nothing
+ * below is read once a Sheet is connected — fill in your own spreadsheet
+ * instead. See "Google Sheet setup.md". */
+function addDays(base, n) { const d = new Date(base); d.setDate(d.getDate() + n); return d; }
+function pad2(n) { return String(n).padStart(2, '0'); }
+function isoDate(d) { return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()); }
+
+const DEMO_START = addDays(new Date(), 45);
+const DEMO_END = addDays(DEMO_START, 6);
+
+const DEMO_TRIP = {
+  title: 'Sample Trip', destination: 'Somewhere nice',
+  start: isoDate(DEMO_START), end: isoDate(DEMO_END), nights: '6',
+  tagline: 'A trip worth planning', passcode: ''
+};
+
+const DEMO_DAYS = [
+  { id: 'day1', num: 'Day 1', date: 'Day 1', title: 'Arrival', sub: 'Check in, unpack once, settle in.',
     events: [
-      { time: 'TBD', title: 'Flight to SJU', note: 'Nonstop if we can get one. Landing time drives the whole first day.', field: 'flightOut', fieldLabel: 'Flight no.' },
-      { time: '4:00 PM', title: 'Check in at the home base', note: 'Still choosing between Condado and Isla Verde.', field: 'hotelConf', fieldLabel: 'Confirmation' },
-      { time: '6:30 PM', title: 'Beach walk, then dinner nearby', note: 'No plans, no reservation. Whatever is open and close.', remind: 'd1dinner', remindLabel: 'Nudge me an hour before' }
+      { time: 'TBD', title: 'Flight out', note: 'Landing time sets up day one.', field: 'flightOut', fieldLabel: 'Flight no.' },
+      { time: '4:00 PM', title: 'Check in', note: '', field: 'hotelConf', fieldLabel: 'Confirmation' },
+      { time: '6:30 PM', title: 'Dinner nearby', note: 'No plans, no reservation.' }
     ] },
-  { num: 'Day 2', date: 'Sun 2/14', title: 'Old San Juan', sub: 'Two 16th-century forts, colored streets, the umbrella alley. All walkable.',
+  { id: 'day2', num: 'Day 2', date: 'Day 2', title: 'Explore', sub: 'A full day to look around.',
     events: [
-      { time: '9:30 AM', title: 'Castillo San Felipe del Morro', note: 'National Park Service site — one ticket covers both forts for 24 hours.' },
-      { time: '12:30 PM', title: 'Lunch in the old city', note: 'Mofongo somewhere with shade.' },
-      { time: '2:30 PM', title: 'Castillo San Cristóbal', note: 'Fewer crowds, tunnels the girls will like.' },
-      { time: '5:00 PM', title: 'Paseo de la Princesa', note: 'Easy walk back along the wall at golden hour.' }
+      { time: '9:30 AM', title: 'Morning outing', note: '' },
+      { time: '1:00 PM', title: 'Lunch out', note: '' },
+      { time: '5:00 PM', title: 'Easy walk back', note: 'Golden hour.' }
     ] },
-  { num: 'Day 3', date: 'Mon 2/15', title: 'Beach and pool, no plans', sub: 'A day to actually do nothing. The whole point of a home-base trip.',
+  { id: 'day3', num: 'Day 3', date: 'Day 3', title: 'Nothing scheduled', sub: 'A day to actually do nothing.',
     events: [
-      { time: 'All day', title: 'Beach, pool, repeat', note: 'First thing to trim if we are short on vacation days.' },
-      { time: '7:00 PM', title: 'Dinner, somebody else picks', note: 'Rotating: Cora chooses tonight.' }
+      { time: 'All day', title: 'Rest', note: 'First thing to trim if you are short on time.' }
     ] },
-  { num: 'Day 4', date: 'Tue 2/16', title: 'El Yunque rainforest', sub: 'About 45 minutes out. Waterfalls, easy family trails, back by dinner.',
+  { id: 'day4', num: 'Day 4', date: 'Day 4', title: 'Day trip', sub: 'Something worth the drive.',
     events: [
-      { time: '8:00 AM', title: 'Drive out to the forest', note: 'Rental car or a guided tour with transport included.', field: 'carConf', fieldLabel: 'Car conf.' },
-      { time: '9:30 AM', title: 'Big Tree Trail to La Mina Falls', note: '0.9 miles each way, paved, ends at a swimmable pool. Day-use pass needed in high season.', field: 'yunquePass', fieldLabel: 'Pass no.' },
-      { time: '12:00 PM', title: 'Yokahú Tower', note: 'Short climb, view across the canopy to the ocean.' },
-      { time: '1:30 PM', title: 'Las Paylas natural water slides', note: 'Volcanic rock chutes near Luquillo. The one the girls will talk about.', remind: 'd4slides', remindLabel: 'Nudge me an hour before' }
+      { time: '8:00 AM', title: 'Head out', note: '', field: 'rentalCarConf', fieldLabel: 'Car conf.' },
+      { time: '1:00 PM', title: 'The main event', note: '' }
     ] },
-  { num: 'Day 5', date: 'Wed 2/17', title: 'Fajardo and Culebra', sub: 'The clearest water near San Juan. Full day out, back to our own beds.',
+  { id: 'day5', num: 'Day 5', date: 'Day 5', title: 'Slow morning, big evening', sub: 'Rest up, then the thing everyone will talk about.',
     events: [
-      { time: '7:15 AM', title: 'Drive to Fajardo', note: 'About an hour east.' },
-      { time: '9:00 AM', title: 'Catamaran to Icacos, or the ferry to Flamenco', note: 'The catamaran is the reliable option with two kids. The public ferry is cheap but sells out.', field: 'boatConf', fieldLabel: 'Boat conf.' },
-      { time: '4:30 PM', title: 'Back to San Juan', note: 'Sunburned and quiet.' }
+      { time: 'Morning', title: 'Nothing scheduled', note: '' },
+      { time: '6:30 PM', title: 'The activity everyone is looking forward to', note: '', field: 'tourConf', fieldLabel: 'Confirmation' }
     ] },
-  { num: 'Day 6', date: 'Thu 2/18', title: 'Slow morning, then the glowing bay', sub: 'Pool in the morning, evening kayak through bioluminescent water at Laguna Grande.',
+  { id: 'day6', num: 'Day 6', date: 'Day 6', title: 'Depart', sub: 'Check out and head home.',
     events: [
-      { time: 'Morning', title: 'Nothing scheduled', note: 'Pool, or a spa hour for Mom and Dad.' },
-      { time: '6:30 PM', title: 'Bio bay kayak tour', note: 'Kayaking Puerto Rico, Laguna Grande. Permit-capped and sells out near the new moon.', field: 'bioConf', fieldLabel: 'Confirmation', remind: 'd6bio', remindLabel: 'Nudge me two hours before' }
-    ] },
-  { num: 'Day 7', date: 'Fri 2/19', title: 'Fly home', sub: 'No rental car to return if we skip it. Check out and head to SJU.',
-    events: [
-      { time: '10:00 AM', title: 'Check out', note: 'Bags at the desk if the flight is late.' },
-      { time: 'TBD', title: 'Flight home from SJU', note: 'Isla Verde is 10 minutes from the airport if we want an easy morning.', field: 'flightHome', fieldLabel: 'Flight no.' }
+      { time: '10:00 AM', title: 'Check out', note: '' },
+      { time: 'TBD', title: 'Flight home', note: '', field: 'flightHome', fieldLabel: 'Flight no.' }
     ] }
 ];
 
-const FIELDS = {
-  flightOut: { kicker: 'Flight · outbound', title: 'Home → San Juan (SJU)', label: 'Flight number', placeholder: 'e.g. B6 1373' },
-  flightHome: { kicker: 'Flight · home', title: 'San Juan (SJU) → home', label: 'Flight number', placeholder: 'e.g. B6 1264' },
-  flightConf: { kicker: 'Flight · both ways', title: 'Airline confirmation', label: 'Confirmation code', placeholder: 'e.g. XQ4RT2' },
-  hotelConf: { kicker: 'Home base · 6 nights', title: 'Hotel confirmation', label: 'Confirmation number', placeholder: 'e.g. 8842-119' },
-  hotelPick: { kicker: 'Home base · 6 nights', title: 'Which hotel are we booking?', label: 'Hotel', placeholder: 'La Concha / Courtyard / Marriott' },
-  carConf: { kicker: 'Rental car · optional', title: 'Rental car confirmation', label: 'Confirmation number', placeholder: 'e.g. 5591203US' },
-  bioConf: { kicker: 'Tour · Thu Feb 18', title: 'Bio bay kayak, Laguna Grande', label: 'Confirmation number', placeholder: 'e.g. KPR-4471' },
-  boatConf: { kicker: 'Tour · Wed Feb 17', title: 'Catamaran or ferry to Culebra', label: 'Confirmation number', placeholder: 'e.g. CAT-2210' },
-  yunquePass: { kicker: 'Tour · Tue Feb 16', title: 'La Mina Falls day-use pass', label: 'Pass number', placeholder: 'recreation.gov code' },
-  coraPhone: { kicker: 'Crew', title: 'Cora\u2019s phone', label: 'Phone number', placeholder: '(555) 000-0000' },
-  marPhone: { kicker: 'Crew', title: 'Mae\u2019s phone', label: 'Phone number', placeholder: '(555) 000-0000' },
-  hotelPhone: { kicker: 'Crew', title: 'Hotel front desk', label: 'Phone number', placeholder: '(787) 000-0000' },
-  tourPhone: { kicker: 'Crew', title: 'Tour operator', label: 'Phone number', placeholder: '(787) 000-0000' }
-};
-
-const PACK = [
-  { id: 'sun', label: 'Reef-safe sunscreen', note: 'Required at El Yunque\u2019s swimming holes.' },
-  { id: 'rain', label: 'Light rain layer, everyone', note: 'It is a rainforest. Afternoon showers most days.' },
-  { id: 'shoes', label: 'Water shoes', note: 'Las Paylas rock is slick.' },
-  { id: 'dry', label: 'Dry clothes for the bio bay', note: 'You will get wet in the kayak.' },
-  { id: 'snorkel', label: 'Snorkel masks', note: 'Rentals on the catamaran, but ours fit better.' },
-  { id: 'bag', label: 'Dry bag for phones', note: 'Boat day and slide day.' },
-  { id: 'chargers', label: 'Chargers and a battery pack', note: 'No adapters needed. Same plugs as home.' },
-  { id: 'meds', label: 'Motion sickness pills', note: 'For the catamaran.' },
-  { id: 'ids', label: 'IDs for Jerad and Megan', note: 'No passports. Puerto Rico is a US territory.' }
+const DEMO_FIELDS = [
+  { key: 'flightOut', label: 'Outbound flight', category: 'Flights', note: 'Landing time sets up day one.', placeholder: 'e.g. B6 1373', phone: '', value: '' },
+  { key: 'flightHome', label: 'Return flight', category: 'Flights', note: '', placeholder: 'e.g. B6 1264', phone: '', value: '' },
+  { key: 'hotelPick', label: 'Where we are staying', category: 'Lodging', note: '', placeholder: '', phone: '', value: '' },
+  { key: 'hotelConf', label: 'Hotel confirmation', category: 'Lodging', note: '', placeholder: 'e.g. 8842-119', phone: '', value: 'CONF-1029' },
+  { key: 'tourConf', label: 'Big activity booking', category: 'Activities', note: 'The one worth booking early.', placeholder: 'e.g. AB-4471', phone: '', value: '' },
+  { key: 'rentalCarConf', label: 'Rental car', category: 'Transportation', note: '', placeholder: 'e.g. 5591203US', phone: '', value: '' }
 ];
 
-const NOTES = [
-  { who: 'Dad', title: 'Book the bio bay the day dates are final', body: 'Tours are permit-capped and sell out around the new moon. This is the one thing that cannot wait.' },
-  { who: 'Mom', title: 'Condado or Isla Verde?', body: 'Condado for walking to dinner, Isla Verde for ten minutes to the airport and a quieter beach. I lean Condado.' },
-  { who: 'Dad', title: 'Car only for two days', body: 'Taxis cover Old San Juan and the beach. Renting just for the El Yunque and Fajardo days may be cheaper than the week.' }
+const DEMO_CONTACTS = [
+  { name: 'Alex', role: 'Trip organizer', phone: '', group: 'Us' },
+  { name: 'Sam', role: 'Co-organizer', phone: '', group: 'Us' },
+  { name: 'Hotel front desk', role: '', phone: '', group: 'On the ground' }
 ];
 
-const PLACES = [
-  { name: 'Home base, San Juan', note: 'Address lands here once we book.', q: 'Condado San Juan Puerto Rico' },
-  { name: 'Castillo San Felipe del Morro', note: 'Old San Juan · 20 min by taxi', q: 'Castillo San Felipe del Morro' },
-  { name: 'El Yunque, Big Tree Trail', note: '45 min drive east', q: 'Big Tree Trail El Yunque' },
-  { name: 'Laguna Grande, Fajardo', note: '1 hr drive · evening kayak', q: 'Laguna Grande Fajardo' }
+const DEMO_PACK = [
+  { id: 'sun', label: 'Sunscreen', note: '' },
+  { id: 'chargers', label: 'Chargers and a battery pack', note: '' },
+  { id: 'ids', label: 'IDs for everyone traveling', note: '' }
 ];
+
+const DEMO_NOTES = [
+  { who: 'Admin', title: 'This is sample data', body: 'Connect a Google Sheet in Admin to replace everything you see with your own trip.' }
+];
+
+const DEMO_PLACES = [
+  { name: 'Home base', note: 'Address lands here once booked.', query: '' }
+];
+
+function parseYMD(s) {
+  if (!s) return null;
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(s).trim());
+  if (!m) return null;
+  return new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+}
+function dateWord(d) { return d.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' }); }
+function parseClock(t) {
+  const m = /^(\d{1,2}):(\d{2})\s*([AaPp][Mm])?$/.exec(String(t || '').trim());
+  if (!m) return null;
+  let h = parseInt(m[1], 10);
+  const mins = parseInt(m[2], 10);
+  const ap = m[3] ? m[3].toUpperCase() : null;
+  if (ap === 'PM' && h < 12) h += 12;
+  if (ap === 'AM' && h === 12) h = 0;
+  return h * 60 + mins;
+}
 
 class Component extends DCLogic {
   state = {
-    screen: 'home', prev: null, dayIx: 3, bookTab: 'flights',
+    screen: 'home', prev: null, dayIx: 0, bookTab: '',
     unlocked: false, lockOpen: false, code: '', codeErr: false,
-    days: DAYS.map(d => Object.assign({}, d, { events: d.events.slice() })),
-    log: [{ who: 'Dad', when: 'Aug 30', text: 'Penciled in Feb 13–19 and added the bio bay confirmation' }],
+    trip: {},
+    days: DEMO_DAYS.map(d => Object.assign({}, d, { events: d.events.slice() })),
+    fieldMeta: DEMO_FIELDS.map(f => ({ key: f.key, label: f.label, category: f.category, note: f.note, placeholder: f.placeholder, phone: f.phone })),
+    vals: DEMO_FIELDS.reduce((acc, f) => { if (f.value) acc[f.key] = f.value; return acc; }, {}),
+    contacts: [], packing: [], notes: [], places: [],
+    log: [{ who: 'Admin', when: 'just now', text: 'Trip created' }],
     adminDay: null, ne: { time: '', title: '', note: '' },
     sync: 'demo', queued: 0, lastSync: null, sheetUrl: '', sheetToken: '',
-    vals: { bioConf: 'KPR-4471' }, packed: { sun: true, ids: true },
-    reminders: { d6bio: true }, edit: null, editDraft: '', draft: '',
-    msgs: [
-      { who: 'Dad', when: '9:12 AM', text: 'Flights are the only thing standing between us and this trip. Looking at Feb 13.', mine: true },
-      { who: 'Mom', when: '9:40 AM', text: 'February works for me. Can we do Condado so we can walk to dinner?', mine: false },
-      { who: 'Cora', when: '4:02 PM', text: 'WATER SLIDES. That is all.', mine: false }
-    ],
+    packed: {}, reminders: {}, edit: null, editDraft: '',
     settings: { offline: true, remind: true, quiet: false },
     now: Date.now()
   };
@@ -647,6 +650,7 @@ class Component extends DCLogic {
   // Sheet rows → the shapes the screens already render.
   absorb(data) {
     const next = {};
+    if (data.trip && Object.keys(data.trip).length) next.trip = data.trip;
     if (data.days && data.days.length) {
       next.days = data.days.map(d => ({
         id: d.id, num: d.num, date: d.date, title: d.title, sub: d.sub,
@@ -657,19 +661,26 @@ class Component extends DCLogic {
         }))
       }));
     }
+    if (data.fieldMeta && data.fieldMeta.length) {
+      next.fieldMeta = data.fieldMeta.map(m => ({
+        key: m.key, label: m.label || m.key, category: m.category || '',
+        note: m.note || '', placeholder: m.placeholder || '', phone: m.phone || ''
+      }));
+    }
     if (data.fields) {
       const vals = {};
       Object.keys(data.fields).forEach(k => { if (data.fields[k]) vals[k] = String(data.fields[k]); });
       next.vals = vals;
     }
+    if (data.contacts && data.contacts.length) next.contacts = data.contacts;
     if (data.packing && data.packing.length) {
       const packed = {};
       data.packing.forEach(p => { packed[p.id] = p.packed === true || p.packed === 'TRUE'; });
       next.packed = packed;
+      next.packing = data.packing.map(p => ({ id: p.id, label: p.label || p.id, note: p.note || '' }));
     }
-    if (data.messages && data.messages.length) {
-      next.msgs = data.messages.map(m => ({ who: m.who, when: m.when, text: m.text, mine: m.who === 'Dad' || m.who === 'Megan' }));
-    }
+    if (data.notes && data.notes.length) next.notes = data.notes;
+    if (data.places && data.places.length) next.places = data.places;
     if (data.changes && data.changes.length) {
       next.log = data.changes.map(c => ({ who: c.who || 'app', when: String(c.timestamp || '').slice(0, 10), text: c.text }));
     }
@@ -679,7 +690,7 @@ class Component extends DCLogic {
   send(op) {
     if (!this.api || !this.api.isLive()) return;
     this.setState({ sync: 'saving' });
-    this.api.push(Object.assign({ who: 'Dad' }, op)).then(res => {
+    this.api.push(Object.assign({ who: 'Admin' }, op)).then(res => {
       this.setState({ sync: res.ok ? 'synced' : res.demo ? 'demo' : 'queued', queued: this.api.queueLength(), lastSync: res.ok ? 'just now' : this.state.lastSync });
     });
   }
@@ -690,33 +701,63 @@ class Component extends DCLogic {
   val = (k) => this.state.vals[k] || '';
   tbd = (k) => !this.state.vals[k];
 
+  // The Trip tab's one row, or the built-in sample trip when nothing's there yet.
+  resolvedTrip() {
+    const t = this.state.trip;
+    return (t && Object.keys(t).length) ? t : DEMO_TRIP;
+  }
+
   renderVals() {
     const st = this.state;
     const style = this.props.cardStyle || 'ledger';
-    const phase = this.props.phase || 'countdown';
     const adult = st.unlocked;
     const DAYS = st.days;
-    const dep = new Date('2027-02-13T09:00:00-04:00').getTime();
-    const ms = Math.max(0, dep - st.now);
-    const days = Math.floor(ms / 86400000);
+    const trip = this.resolvedTrip();
+    const destination = trip.destination || '';
+    const tagline = trip.tagline || destination || trip.title || 'Trip planner';
+    if (typeof document !== 'undefined') document.title = trip.title || 'Trip App';
+
+    const tripStart = parseYMD(trip.start);
+    const tripEnd = parseYMD(trip.end);
+    const nowDate = new Date(st.now);
+
+    // Countdown, shown before the trip starts.
+    const dep = tripStart ? tripStart.getTime() : null;
+    const ms = dep !== null ? Math.max(0, dep - st.now) : 0;
+    const cdDaysNum = Math.floor(ms / 86400000);
     const pad = (n) => String(n).padStart(2, '0');
     const clock = pad(Math.floor(ms / 3600000) % 24) + ':' + pad(Math.floor(ms / 60000) % 60) + ':' + pad(Math.floor(ms / 1000) % 60);
 
+    let nights = null;
+    if (trip.nights !== undefined && trip.nights !== null && String(trip.nights).trim() !== '' && !isNaN(Number(trip.nights))) nights = Number(trip.nights);
+    else if (tripStart && tripEnd) nights = Math.round((tripEnd.getTime() - tripStart.getTime()) / 86400000);
+    const tripLen = nights !== null ? nights + 1 : null;
+    const tripDatesLabel = tripStart && tripEnd
+      ? (dateWord(tripStart) + ' → ' + dateWord(tripEnd) + ', ' + tripEnd.getFullYear())
+      : 'Dates coming soon';
+    const tripLengthLabel = tripLen !== null
+      ? (tripLen + (tripLen === 1 ? ' day' : ' days') + ' · ' + nights + (nights === 1 ? ' night' : ' nights'))
+      : '';
+    const countdownLabel = destination ? ('Days until we leave for ' + destination) : 'Days until the trip';
+
+    // Whether "today" falls inside the trip — switches the home screen from
+    // the countdown to a live view of today's plan.
+    const duringNow = !!(tripStart && tripEnd && st.now >= tripStart.getTime() && st.now < (tripEnd.getTime() + 86400000));
+
     const tabDefs = [
-      ['home', phase === 'during' ? 'Today' : 'Countdown'],
+      ['home', duringNow ? 'Today' : 'Countdown'],
       ['days', 'Days'], ['book', 'Confirm'], ['crew', 'Crew'], ['more', 'More']
     ].concat(st.unlocked ? [['admin', 'Admin']] : []);
     const activeTab = ['home', 'days', 'book', 'crew', 'more', 'admin'].includes(st.screen) ? st.screen
-      : (st.screen === 'day' ? 'days' : ['packing', 'chat', 'notes', 'map'].includes(st.screen) ? 'more' : 'home');
+      : (st.screen === 'day' ? 'days' : ['packing', 'notes', 'map'].includes(st.screen) ? 'more' : 'home');
 
     const titles = {
-      home: phase === 'during' ? 'Today' : 'Countdown', days: 'Seven days, one bed', day: (DAYS[st.dayIx] || DAYS[0]).num,
+      home: duringNow ? 'Today' : 'Countdown', days: 'Day by day', day: (DAYS[st.dayIx] || DAYS[0]).num,
       book: 'Confirmations', crew: 'Who to call', more: 'Everything else', admin: 'Admin',
-      packing: 'Packing list', chat: 'Family chat', notes: 'Shared notes', map: 'Maps'
+      packing: 'Packing list', notes: 'Shared notes', map: 'Maps'
     };
 
-    const bookKeys = { flights: ['flightOut', 'flightHome', 'flightConf'], hotel: ['hotelPick', 'hotelConf'], tours: ['bioConf', 'boatConf', 'yunquePass'], car: ['carConf'] };
-    const tracked = ['flightOut', 'flightHome', 'flightConf', 'hotelPick', 'hotelConf', 'bioConf', 'boatConf', 'carConf'];
+    const tracked = st.fieldMeta.map(m => m.key);
     const bookedCount = tracked.filter(k => !this.tbd(k)).length;
 
     const tagFor = (done) => done
@@ -724,51 +765,84 @@ class Component extends DCLogic {
       : { tag: 'TBD', tagBg: 'var(--color-accent-200)', tagFg: 'var(--color-accent-800)' };
 
     const openKeys = tracked.filter(k => this.tbd(k)).slice(0, 5);
+    const metaByKey = {};
+    st.fieldMeta.forEach(m => { metaByKey[m.key] = m; });
 
     const day = DAYS[st.dayIx] || DAYS[0];
 
-    const bookingsFor = (tab) => {
-      const mk = (o) => Object.assign({
-        callLabel: 'Call', callHref: 'tel:+15550142201', editLabel: 'Add details',
-        onEdit: () => this.openEdit(o.key)
-      }, o);
-      if (tab === 'flights') return [
-        mk({ key: 'flightOut', kicker: 'Flight · outbound', title: 'Home → San Juan (SJU)', note: 'Domestic flight, no passports needed. Landing time sets up day one.',
-          rows: [['Flight no.', 'flightOut'], ['Confirmation', 'flightConf'], ['Seats', null]], editLabel: this.tbd('flightOut') ? 'Add flight no.' : 'Edit flight', callLabel: 'Call airline' }),
-        mk({ key: 'flightHome', kicker: 'Flight · home', title: 'San Juan (SJU) → home', note: 'Isla Verde is ten minutes from the airport if we want an easy last morning.',
-          rows: [['Flight no.', 'flightHome'], ['Confirmation', 'flightConf']], editLabel: this.tbd('flightHome') ? 'Add flight no.' : 'Edit flight', callLabel: 'Call airline' })
-      ];
-      if (tab === 'hotel') return [
-        mk({ key: 'hotelPick', kicker: 'Home base · 6 nights', title: this.val('hotelPick') || 'Three candidates, one bed', note: 'La Concha (Condado, walkable) · Courtyard Isla Verde (closest to SJU) · San Juan Marriott (full resort). Leaning La Concha.',
-          rows: [['Hotel', 'hotelPick'], ['Confirmation', 'hotelConf'], ['Front desk', 'hotelPhone']], editLabel: this.tbd('hotelPick') ? 'Pick the hotel' : 'Change hotel', callLabel: 'Call front desk' })
-      ];
-      if (tab === 'tours') return [
-        mk({ key: 'bioConf', kicker: 'Tour · Thu Feb 18, 6:30 PM', title: 'Bio bay kayak · Laguna Grande', note: 'Kayaking Puerto Rico · 4 paddlers. Permit-capped, sells out near the new moon.',
-          rows: [['Confirmation', 'bioConf'], ['Operator', 'tourPhone']], editLabel: this.tbd('bioConf') ? 'Add confirmation' : 'Edit booking', callLabel: 'Call operator' }),
-        mk({ key: 'boatConf', kicker: 'Tour · Wed Feb 17', title: 'Catamaran to Icacos, or Culebra ferry', note: 'Catamaran is the reliable one with two kids. The public ferry is cheap but sells out.',
-          rows: [['Confirmation', 'boatConf'], ['Meeting point', null]], editLabel: 'Add confirmation', callLabel: 'Call operator' }),
-        mk({ key: 'yunquePass', kicker: 'Tour · Tue Feb 16', title: 'La Mina Falls day-use pass', note: 'Book a day or two ahead on recreation.gov in high season.',
-          rows: [['Pass no.', 'yunquePass']], editLabel: 'Add pass number', callLabel: 'Call the forest office' })
-      ];
-      return [
-        mk({ key: 'carConf', kicker: 'Rental car · optional', title: 'Two days, not the whole week', note: 'Taxis cover Old San Juan and the beach. Rent for the El Yunque and Fajardo days if tour transport is not included.',
-          rows: [['Confirmation', 'carConf'], ['Pick-up', null]], editLabel: 'Add confirmation', callLabel: 'Call rental desk' })
-      ];
-    };
+    // Today's schedule, once the trip is under way: which day is "today",
+    // and — for events with a real clock time — what's happening now vs next.
+    let duringDayLabel = '', duringDayTitle = '', duringDaySub = '', duringClock = '';
+    let hasCurrentEvent = false, noCurrentEvent = true, currentTitle = '', currentNote = '';
+    let hasNextEvent = false, nextTitle = '', nextNote = '', nextBadge = '';
+    let todayRest = [];
+    if (duringNow) {
+      const todayIx = Math.min(DAYS.length - 1, Math.max(0, Math.floor((st.now - tripStart.getTime()) / 86400000)));
+      const today = DAYS[todayIx] || DAYS[0];
+      duringDayLabel = (today.num || ('Day ' + (todayIx + 1))) + ' of ' + DAYS.length + ' · ' + (today.date || dateWord(nowDate));
+      duringDayTitle = today.title || '';
+      duringDaySub = today.sub || '';
+      duringClock = nowDate.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
 
-    const raw = bookingsFor(st.bookTab);
-    const confKey = { flights: 'flightConf', hotel: 'hotelConf', tours: 'bioConf', car: 'carConf' }[st.bookTab];
+      const nowMinutes = nowDate.getHours() * 60 + nowDate.getMinutes();
+      const withMin = (today.events || []).map((e, i) => Object.assign({ _idx: i, _min: parseClock(e.time) }, e));
+      const timedSorted = withMin.filter(e => e._min !== null).slice().sort((a, b) => a._min - b._min);
+      const past = timedSorted.filter(e => e._min <= nowMinutes);
+      const current = past.length ? past[past.length - 1] : null;
+      const nextEv = timedSorted.find(e => e._min > nowMinutes && (!current || e._idx !== current._idx)) || null;
 
-    const editMeta = FIELDS[st.edit] || FIELDS.flightOut;
+      hasCurrentEvent = !!current; noCurrentEvent = !current;
+      if (current) { currentTitle = current.title || ''; currentNote = current.note || ''; }
+      hasNextEvent = !!nextEv;
+      if (nextEv) {
+        nextTitle = nextEv.title || '';
+        nextNote = nextEv.time + (nextEv.note ? (' · ' + nextEv.note) : '');
+        const diff = nextEv._min - nowMinutes;
+        const hh = Math.floor(diff / 60), mm = diff % 60;
+        nextBadge = 'IN ' + (hh > 0 ? (hh + 'H ') : '') + mm + 'M';
+      }
+      const usedIdx = {};
+      if (current) usedIdx[current._idx] = true;
+      if (nextEv) usedIdx[nextEv._idx] = true;
+      todayRest = withMin.filter(e => !usedIdx[e._idx]).map(e => ({ time: e.time || 'TBD', title: e.title, note: e.note || '' }));
+    }
+
+    // Confirmations screen: tabs come from whatever categories exist on the
+    // Bookings sheet, in the order they first appear there.
+    const categories = [];
+    st.fieldMeta.forEach(m => {
+      const c = (m.category && String(m.category).trim()) || 'Details';
+      if (categories.indexOf(c) === -1) categories.push(c);
+    });
+    if (!categories.length) categories.push('Details');
+    const activeBookTab = categories.indexOf(st.bookTab) !== -1 ? st.bookTab : categories[0];
+
+    const raw = st.fieldMeta
+      .filter(m => ((m.category && String(m.category).trim()) || 'Details') === activeBookTab)
+      .map(m => {
+        const done = !this.tbd(m.key);
+        const value = this.val(m.key) || 'TBD';
+        const label = m.label || m.key;
+        return {
+          key: m.key, kicker: (m.category && String(m.category).trim()) || 'Details',
+          title: label, note: m.note || '',
+          rows: [['Value', m.key]],
+          editLabel: done ? 'Edit' : ('Add ' + label.toLowerCase()),
+          callLabel: 'Call', callHref: m.phone ? ('tel:' + m.phone) : 'tel:',
+          onEdit: () => this.openEdit(m.key)
+        };
+      });
+
+    const editMeta = metaByKey[st.edit] || { key: st.edit, label: 'Value', category: 'Details', note: '', placeholder: '' };
 
     return {
       screenTitle: titles[st.screen] || 'Trip',
-      roleLabel: adult ? 'Admin · Dad' : 'View only',
       lockChipBg: adult ? 'var(--color-accent-200)' : 'var(--color-neutral-200)',
       lockChipFg: adult ? 'var(--color-accent-800)' : 'var(--color-neutral-800)',
       lockChipLabel: adult ? 'UNLOCKED' : 'LOCKED',
       toggleRole: () => this.setState({ lockOpen: true, code: '', codeErr: false }),
 
+      tagline, destination,
       syncLabel: { demo: 'DEMO DATA', loading: 'LOADING…', saving: 'SAVING…', synced: 'SHEET SYNCED', queued: 'QUEUED · ' + st.queued, offline: 'OFFLINE COPY' }[st.sync] || 'DEMO DATA',
       syncBg: st.sync === 'synced' ? 'var(--color-accent-200)' : 'var(--color-neutral-200)',
       syncFg: st.sync === 'synced' ? 'var(--color-accent-800)' : 'var(--color-neutral-800)',
@@ -785,16 +859,17 @@ class Component extends DCLogic {
         : st.sync === 'queued' ? (st.queued + ' change(s) waiting for signal.')
         : st.sync === 'offline' ? 'Showing the saved copy. Will sync when you have signal.'
         : st.sync === 'loading' ? 'Reading the Sheet…'
-        : 'Not connected — running on built-in demo data.',
+        : 'Not connected — running on built-in sample data.',
 
       lockOpen: st.lockOpen, code: st.code, codeErr: st.codeErr,
       isUnlocked: st.unlocked, codeNeeded: !st.unlocked,
+      showPasscodeHint: !(trip.passcode && String(trip.passcode).trim()),
       onCode: (e) => this.setState({ code: e.target.value, codeErr: false }),
       onCodeKey: (e) => { if (e.key === 'Enter') this.tryCode(); },
       submitCode: () => this.tryCode(),
       closeLock: () => this.setState({ lockOpen: false, code: '', codeErr: false }),
       signOut: () => this.setState(s => ({ unlocked: false, lockOpen: false, code: '', screen: s.screen === 'admin' ? 'home' : s.screen })),
-      canBack: ['day', 'packing', 'chat', 'notes', 'map'].includes(st.screen),
+      canBack: ['day', 'packing', 'notes', 'map'].includes(st.screen),
       goBack: () => this.setState(s => ({ screen: s.screen === 'day' ? 'days' : 'more' })),
 
       tabs: tabDefs.map(([k, label]) => ({
@@ -802,8 +877,8 @@ class Component extends DCLogic {
         bg: activeTab === k ? INK : 'transparent', fg: activeTab === k ? BG : INK
       })),
 
-      isCountdown: st.screen === 'home' && phase !== 'during',
-      isDuring: st.screen === 'home' && phase === 'during',
+      isCountdown: st.screen === 'home' && !duringNow,
+      isDuring: st.screen === 'home' && duringNow,
       isDays: st.screen === 'days', isDay: st.screen === 'day', isBook: st.screen === 'book',
       isCrew: st.screen === 'crew', isMore: st.screen === 'more', isPacking: st.screen === 'packing',
       isAdmin: st.screen === 'admin',
@@ -825,24 +900,24 @@ class Component extends DCLogic {
       addEvent: () => this.addEvent(),
       addDay: () => this.addDay(),
       changeLog: st.log,
-      isChat: st.screen === 'chat', isNotes: st.screen === 'notes', isMap: st.screen === 'map',
+      isNotes: st.screen === 'notes', isMap: st.screen === 'map',
 
-      cdDays: days, cdClock: clock,
-      progressLabel: bookedCount + ' of ' + tracked.length + ' locked in',
+      cdDays: cdDaysNum, cdClock: clock,
+      tripDatesLabel, tripLengthLabel, countdownLabel,
+      progressLabel: tracked.length ? (bookedCount + ' of ' + tracked.length + ' locked in') : 'Add rows to the Bookings tab to track progress here',
       progressCells: tracked.map(k => ({ bg: this.tbd(k) ? 'transparent' : ACC })),
       openItems: openKeys.map(k => Object.assign({
-        title: FIELDS[k].title, note: FIELDS[k].label + ' · ' + (adult ? 'tap to fill in' : 'waiting on Mom or Dad'),
+        title: (metaByKey[k] && metaByKey[k].label) || k,
+        note: ((metaByKey[k] && metaByKey[k].category) || 'Details') + ' · ' + (adult ? 'tap to fill in' : 'waiting on a trip admin'),
         onEdit: () => this.openEdit(k)
       }, tagFor(false))),
 
       goDays: () => this.go('days'), goBook: () => this.go('book'), goCrew: () => this.go('crew'),
-      goPacking: () => this.go('packing'), goChat: () => this.go('chat'),
+      goPacking: () => this.go('packing'), goNotes: () => this.go('notes'),
 
-      todayRest: [
-        { time: '4:30 PM', title: 'Back to the hotel', note: 'Rinse off, pool before dinner' },
-        { time: '7:00 PM', title: 'Dinner in Condado', note: 'Mae picks tonight' },
-        { time: 'Tomorrow', title: 'Fajardo boat day, 7:15 AM', note: 'Dry bag and motion pills by the door' }
-      ],
+      duringDayLabel, duringClock, duringDayTitle, duringDaySub,
+      hasCurrentEvent, noCurrentEvent, currentTitle, currentNote,
+      hasNextEvent, nextTitle, nextNote, nextBadge, todayRest,
 
       days: DAYS.map((d, i) => {
         const open = d.events.filter(e => e.field && this.tbd(e.field)).length;
@@ -865,16 +940,16 @@ class Component extends DCLogic {
         onRemind: e.remind ? () => this.setState(s => ({ reminders: Object.assign({}, s.reminders, { [e.remind]: !s.reminders[e.remind] }) })) : null
       })),
 
-      bookTabs: [['flights', 'Flights'], ['hotel', 'Hotel'], ['tours', 'Tours'], ['car', 'Car']].map(([k, label]) => ({
-        label, onPick: () => this.setState({ bookTab: k }),
-        bg: st.bookTab === k ? INK : 'transparent', fg: st.bookTab === k ? BG : INK
+      bookTabs: categories.map(c => ({
+        label: c, onPick: () => this.setState({ bookTab: c }),
+        bg: activeBookTab === c ? INK : 'transparent', fg: activeBookTab === c ? BG : INK
       })),
       styleLedger: style === 'ledger', styleStub: style === 'stub', stylePoster: style === 'poster',
       bookings: raw.map(b => {
         const done = !this.tbd(b.key);
-        const conf = this.val(confKey) || 'TBD';
+        const conf = this.val(b.key) || 'TBD';
         return Object.assign({}, b, {
-          status: done ? (b.key === 'bioConf' ? 'CONFIRMED' : 'ON FILE') : 'NOT BOOKED',
+          status: done ? 'ON FILE' : 'NOT BOOKED',
           tagBg: done ? 'var(--color-neutral-200)' : 'var(--color-accent-200)',
           tagFg: done ? 'var(--color-neutral-800)' : 'var(--color-accent-800)',
           conf, confColor: conf === 'TBD' ? ACC : INK,
@@ -885,28 +960,41 @@ class Component extends DCLogic {
           }))
         });
       }),
-      bookFoot: bookedCount + ' of ' + tracked.length + ' details are in. Anything marked TBD is fair game for either of us to fill in — the app says who added it.',
+      bookFoot: tracked.length
+        ? (bookedCount + ' of ' + tracked.length + ' details are in. Anything marked TBD is fair game for any admin to fill in — the app says who added it.')
+        : 'Add rows to the Bookings tab of the Sheet to track confirmations here.',
 
-      contactGroups: [
-        { label: 'Us', people: [
-          { name: 'Jerad', role: 'Dad · books the flights', number: '(555) 014-2201', hasNumber: true, canText: true, tel: 'tel:+15550142201', sms: 'sms:+15550142201', numColor: INK },
-          { name: 'Megan', role: 'Mom · has the hotel login', number: '(555) 014-2202', hasNumber: true, canText: true, tel: 'tel:+15550142202', sms: 'sms:+15550142202', numColor: INK },
-          { name: 'Cora', role: '14', number: this.val('coraPhone') || 'TBD', hasNumber: !this.tbd('coraPhone'), canText: !this.tbd('coraPhone'), hasField: this.tbd('coraPhone'), tel: 'tel:' + this.val('coraPhone'), sms: 'sms:' + this.val('coraPhone'), numColor: this.tbd('coraPhone') ? ACC : INK, onEdit: () => this.openEdit('coraPhone') },
-          { name: 'Mae', role: '11', number: this.val('marPhone') || 'TBD', hasNumber: !this.tbd('marPhone'), canText: !this.tbd('marPhone'), hasField: this.tbd('marPhone'), tel: 'tel:' + this.val('marPhone'), sms: 'sms:' + this.val('marPhone'), numColor: this.tbd('marPhone') ? ACC : INK, onEdit: () => this.openEdit('marPhone') }
-        ] },
-        { label: 'On the ground', people: [
-          { name: this.val('hotelPick') || 'Hotel front desk', role: 'Home base · 6 nights', number: this.val('hotelPhone') || 'TBD', hasNumber: !this.tbd('hotelPhone'), hasField: this.tbd('hotelPhone'), tel: 'tel:' + this.val('hotelPhone'), numColor: this.tbd('hotelPhone') ? ACC : INK, onEdit: () => this.openEdit('hotelPhone') },
-          { name: 'Kayaking Puerto Rico', role: 'Bio bay tour · Thu Feb 18', number: this.val('tourPhone') || 'TBD', hasNumber: !this.tbd('tourPhone'), hasField: this.tbd('tourPhone'), tel: 'tel:' + this.val('tourPhone'), numColor: this.tbd('tourPhone') ? ACC : INK, onEdit: () => this.openEdit('tourPhone') },
-          { name: 'Airline', role: 'Flights both ways', number: '(555) 014-9000', hasNumber: true, tel: 'tel:+15550149000', numColor: INK }
-        ] }
-      ],
+      contactGroups: (() => {
+        const contactsSrc = (st.contacts && st.contacts.length) ? st.contacts : DEMO_CONTACTS;
+        const order = [];
+        const map = {};
+        contactsSrc.forEach(c => {
+          const g = (c.group && String(c.group).trim()) || 'Crew';
+          if (!map[g]) { map[g] = []; order.push(g); }
+          map[g].push(c);
+        });
+        return order.map(g => ({
+          label: g,
+          people: map[g].map(c => {
+            const phone = (c.phone || '').trim();
+            return {
+              name: c.name || 'Unnamed', role: c.role || '', number: phone || 'No number yet',
+              hasNumber: !!phone, canText: !!phone, hasField: false,
+              tel: phone ? ('tel:' + phone) : 'tel:', sms: phone ? ('sms:' + phone) : 'sms:',
+              numColor: phone ? INK : ACC
+            };
+          })
+        }));
+      })(),
 
       moreItems: [
-        { label: 'Packing list', note: PACK.filter(p => st.packed[p.id]).length + ' of ' + PACK.length + ' packed', onOpen: () => this.go('packing') },
-        { label: 'Family chat', note: st.msgs.length + ' messages · last from ' + st.msgs[st.msgs.length - 1].who, onOpen: () => this.go('chat') },
-        { label: 'Shared notes', note: 'Decisions we still owe each other', onOpen: () => this.go('notes') },
-        { label: 'Maps and directions', note: 'Saved for offline before we fly', onOpen: () => this.go('map') },
-        { label: 'Weather', note: 'Typical mid-February: 82° / 71°', onOpen: () => this.go('home') }
+        { label: 'Packing list', note: (function () {
+            const src = (st.packing && st.packing.length) ? st.packing : DEMO_PACK;
+            const packedCount = src.filter(p => st.packed[p.id]).length;
+            return packedCount + ' of ' + src.length + ' packed';
+          })(), onOpen: () => this.go('packing') },
+        { label: 'Shared notes', note: 'Decisions worth writing down', onOpen: () => this.go('notes') },
+        { label: 'Maps and directions', note: 'Saved for offline before you go', onOpen: () => this.go('map') }
       ],
       settings: [
         { key: 'offline', label: 'Keep everything offline', note: 'Opens with no signal, syncs on wifi' },
@@ -922,9 +1010,13 @@ class Component extends DCLogic {
         justify: st.settings[s.key] ? 'flex-end' : 'flex-start'
       })),
 
-      packedLabel: PACK.filter(p => st.packed[p.id]).length + ' of ' + PACK.length + ' packed',
-      packList: PACK.map(p => ({
-        label: p.label, note: p.note,
+      packedLabel: (() => {
+        const src = (st.packing && st.packing.length) ? st.packing : DEMO_PACK;
+        const packedCount = src.filter(p => st.packed[p.id]).length;
+        return packedCount + ' of ' + src.length + ' packed';
+      })(),
+      packList: ((st.packing && st.packing.length) ? st.packing : DEMO_PACK).map(p => ({
+        label: p.label, note: p.note || '',
         onToggle: () => this.setState(s => {
           this.send({ type: 'setPacked', id: p.id, packed: !s.packed[p.id] });
           return { packed: Object.assign({}, s.packed, { [p.id]: !s.packed[p.id] }) };
@@ -935,40 +1027,35 @@ class Component extends DCLogic {
         strike: st.packed[p.id] ? 'line-through' : 'none'
       })),
 
-      messages: st.msgs.map(m => ({
-        who: m.who, when: m.when, text: m.text,
-        align: m.mine ? 'flex-end' : 'flex-start',
-        bg: m.mine ? ACC : SURF, fg: m.mine ? BG : INK,
-        edge: m.mine ? INK : ACC
-      })),
-      draft: st.draft,
-      onDraft: (e) => this.setState({ draft: e.target.value }),
-      onDraftKey: (e) => { if (e.key === 'Enter') this.sendNow(); },
-      sendMsg: () => this.sendNow(),
+      notes: (st.notes && st.notes.length) ? st.notes : DEMO_NOTES,
 
-      notes: NOTES,
-      addNote: () => this.go('chat'),
-      places: PLACES.map(p => ({ name: p.name, note: p.note, href: 'https://maps.google.com/?q=' + encodeURIComponent(p.q) })),
+      mapPlaceholderLabel: 'MAP OF ' + (destination ? destination.toUpperCase() : 'YOUR TRIP') + ' GOES HERE',
+      mapFooterNote: destination ? ('Download the offline map for ' + destination + ' before you go.') : 'Download the offline map before you go.',
+      places: ((st.places && st.places.length) ? st.places : DEMO_PLACES).map(p => ({
+        name: p.name, note: p.note || '',
+        href: 'https://maps.google.com/?q=' + encodeURIComponent(p.query || p.name || destination || '')
+      })),
 
       editing: !!st.edit, canEdit: !!st.edit && adult, readOnly: !!st.edit && !adult,
-      editKicker: editMeta.kicker, editTitle: editMeta.title, editLabel: editMeta.label,
-      editPlaceholder: editMeta.placeholder, editDraft: st.editDraft,
+      editKicker: editMeta.category || 'Details', editTitle: editMeta.label || editMeta.key || 'Edit',
+      editLabel: 'Value', editPlaceholder: editMeta.placeholder || '', editDraft: st.editDraft,
       onEditDraft: (e) => this.setState({ editDraft: e.target.value }),
       onEditKey: (e) => { if (e.key === 'Enter') this.commitEdit(); },
       saveEdit: () => this.commitEdit(),
-      cancelEdit: () => this.setState({ edit: null, editDraft: '' }),
-      goChatFromEdit: () => this.setState({ edit: null, screen: 'chat' })
+      cancelEdit: () => this.setState({ edit: null, editDraft: '' })
     };
   }
 
   tryCode() {
-    if (this.state.code.trim() === '0213') this.setState({ unlocked: true, lockOpen: false, code: '', codeErr: false });
+    const trip = this.resolvedTrip();
+    const pass = (trip.passcode && String(trip.passcode).trim()) || DEFAULT_PASSCODE;
+    if (this.state.code.trim() === pass) this.setState({ unlocked: true, lockOpen: false, code: '', codeErr: false });
     else this.setState({ codeErr: true });
   }
 
   setNe(k, v) { this.setState(s => ({ ne: Object.assign({}, s.ne, { [k]: v }) })); }
 
-  logIt(text, s) { return [{ who: 'Dad', when: 'just now', text }].concat(s.log).slice(0, 8); }
+  logIt(text, s) { return [{ who: 'Admin', when: 'just now', text }].concat(s.log).slice(0, 8); }
 
   addEvent() {
     const i = this.state.adminDay, ne = this.state.ne;
@@ -1006,21 +1093,14 @@ class Component extends DCLogic {
 
   commitEdit() {
     const k = this.state.edit, v = this.state.editDraft.trim();
-    const label = (FIELDS[k] || {}).label || 'the field';
+    const meta = this.state.fieldMeta.find(m => m.key === k) || {};
+    const label = meta.label || k;
     this.send({ type: 'setField', key: k, value: v });
     this.setState(s => ({
       vals: Object.assign({}, s.vals, v ? { [k]: v } : { [k]: undefined }),
       edit: null, editDraft: '',
       log: this.logIt(v ? label + ' set to ' + v : label + ' cleared', s)
     }));
-  }
-
-  sendNow() {
-    const t = this.state.draft.trim();
-    if (!t) return;
-    const who = this.state.unlocked ? 'Dad' : 'Cora';
-    this.send({ type: 'addMessage', who, text: t });
-    this.setState(s => ({ msgs: s.msgs.concat([{ who, when: 'now', text: t, mine: s.unlocked }]), draft: '' }));
   }
 }
 
