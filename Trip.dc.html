@@ -7,10 +7,8 @@
 </head>
 <body>
 <x-dc>
-<helmet data-dc-atomics><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="PR Trip"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="theme-color" content="#744D1C"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png"><link rel="stylesheet" href="_ds/modernist-39659a5a-68d6-413e-90d3-205ce42d5fa0/styles.css"><script src="_ds/modernist-39659a5a-68d6-413e-90d3-205ce42d5fa0/_ds_bundle.js"></script><style>:root{--color-bg:#FBF3E3;--color-surface:#F5E9D2;--color-text:#16332E;--color-accent:#A5702C;--color-accent-2:#B8813C;--color-divider:color-mix(in srgb,#16332E 32%,transparent);--color-accent-100:#FCF3E3;--color-accent-200:#F5E4C6;--color-accent-300:#E9CD9B;--color-accent-400:#D4AC66;--color-accent-500:#BC8836;--color-accent-600:#8E5F23;--color-accent-700:#744D1C;--color-accent-800:#573A15;--color-accent-900:#3C2810;--color-neutral-100:#FBF6EC;--color-neutral-200:#F0E7D6;--color-neutral-300:#DED3BF;--color-neutral-400:#BFB4A0;--color-neutral-500:#9A9284;--color-neutral-600:#7A7669;--color-neutral-700:#4F5C53;--color-neutral-800:#2E4239;--color-neutral-900:#16332E}html,body{margin:0;min-height:100%;background:#EFE4CC;font-family:"Archivo",system-ui,sans-serif;-webkit-text-size-adjust:100%;overscroll-behavior:none}a{color:var(--color-accent-700);text-decoration:none}a:hover{color:var(--color-accent-800)}.appscroll::-webkit-scrollbar{width:0}</style></helmet>
-<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px">
-<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402px,874px">
-<div style="position:relative;height:100%;display:flex;flex-direction:column;padding-top:52px;background:var(--color-bg);color:var(--color-text);font-family:'Archivo',system-ui,sans-serif;overflow:hidden">
+<helmet data-dc-atomics><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="PR Trip"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="theme-color" content="#744D1C"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png"><link rel="stylesheet" href="_ds/modernist-39659a5a-68d6-413e-90d3-205ce42d5fa0/styles.css"><script src="_ds/modernist-39659a5a-68d6-413e-90d3-205ce42d5fa0/_ds_bundle.js"></script><style>:root{--color-bg:#FBF3E3;--color-surface:#F5E9D2;--color-text:#16332E;--color-accent:#A5702C;--color-accent-2:#B8813C;--color-divider:color-mix(in srgb,#16332E 32%,transparent);--color-accent-100:#FCF3E3;--color-accent-200:#F5E4C6;--color-accent-300:#E9CD9B;--color-accent-400:#D4AC66;--color-accent-500:#BC8836;--color-accent-600:#8E5F23;--color-accent-700:#744D1C;--color-accent-800:#573A15;--color-accent-900:#3C2810;--color-neutral-100:#FBF6EC;--color-neutral-200:#F0E7D6;--color-neutral-300:#DED3BF;--color-neutral-400:#BFB4A0;--color-neutral-500:#9A9284;--color-neutral-600:#7A7669;--color-neutral-700:#4F5C53;--color-neutral-800:#2E4239;--color-neutral-900:#16332E}html,body{margin:0;height:100%;background:var(--color-bg);font-family:"Archivo",system-ui,sans-serif;-webkit-text-size-adjust:100%;overscroll-behavior:none}a{color:var(--color-accent-700);text-decoration:none}a:hover{color:var(--color-accent-800)}.appscroll::-webkit-scrollbar{width:0}</style></helmet>
+<div style="position:relative;height:100dvh;max-height:100dvh;width:100%;max-width:640px;margin:0 auto;display:flex;flex-direction:column;padding-top:calc(env(safe-area-inset-top,0px) + 10px);background:var(--color-bg);color:var(--color-text);font-family:'Archivo',system-ui,sans-serif;overflow:hidden">
 
           <div style="display:flex;align-items:center;gap:10px;padding:8px 16px 10px;border-bottom:2px solid var(--color-divider);flex:none">
             <sc-if value="{{ canBack }}" hint-placeholder-val="{{ false }}">
@@ -441,7 +439,7 @@
             </div>
           </sc-if>
 
-          <div style="flex:none;display:flex;border-top:2px solid var(--color-divider);padding-bottom:22px;background:var(--color-bg)">
+          <div style="flex:none;display:flex;border-top:2px solid var(--color-divider);padding-bottom:calc(env(safe-area-inset-bottom,0px) + 10px);background:var(--color-bg)">
             <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
               <button onClick="{{ t.onPick }}" style="flex:1;min-width:0;background:{{ t.bg }};color:{{ t.fg }};border:0;border-right:1px solid var(--color-divider);padding:10px 7px 9px;font-family:inherit;font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-align:left;cursor:pointer">{{ t.label }}</button>
             </sc-for>
@@ -449,7 +447,7 @@
 
           <sc-if value="{{ lockOpen }}" hint-placeholder-val="{{ false }}">
             <div style="position:absolute;inset:0;z-index:80;background:color-mix(in srgb,#16332E 55%,transparent);display:flex;align-items:flex-end">
-              <div style="width:100%;background:var(--color-bg);border-top:3px solid var(--color-text);padding:16px 16px 30px">
+              <div style="width:100%;background:var(--color-bg);border-top:3px solid var(--color-text);padding:16px 16px calc(env(safe-area-inset-bottom,0px) + 24px)">
                 <div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">Grown-up access</div>
                 <sc-if value="{{ isUnlocked }}" hint-placeholder-val="{{ false }}">
                   <div>
@@ -473,6 +471,7 @@
                       <button onClick="{{ submitCode }}" class="btn btn-primary" style="flex:1;justify-content:flex-start">Unlock editing</button>
                       <button onClick="{{ closeLock }}" class="btn btn-secondary" style="justify-content:flex-start">Cancel</button>
                     </div>
+                    <div style="font-size:11px;color:var(--color-neutral-700);margin-top:12px;line-height:1.45">Demo passcode: 0213</div>
                   </div>
                 </sc-if>
               </div>
@@ -481,7 +480,7 @@
 
           <sc-if value="{{ editing }}" hint-placeholder-val="{{ false }}">
             <div style="position:absolute;inset:0;z-index:70;background:color-mix(in srgb,#16332E 55%,transparent);display:flex;align-items:flex-end">
-              <div style="width:100%;background:var(--color-bg);border-top:3px solid var(--color-text);padding:16px 16px 30px">
+              <div style="width:100%;background:var(--color-bg);border-top:3px solid var(--color-text);padding:16px 16px calc(env(safe-area-inset-bottom,0px) + 24px)">
                 <div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--color-accent)">{{ editKicker }}</div>
                 <div style="font-size:20px;font-weight:800;line-height:1.15;margin-top:5px">{{ editTitle }}</div>
                 <sc-if value="{{ canEdit }}" hint-placeholder-val="{{ true }}">
@@ -508,8 +507,7 @@
           </sc-if>
 
         </div>
-</x-import>
-</div>
+
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;cardStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ledger&quot;,&quot;stub&quot;,&quot;poster&quot;],&quot;default&quot;:&quot;ledger&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Confirmation cards&quot;},&quot;phase&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;countdown&quot;,&quot;during&quot;],&quot;default&quot;:&quot;countdown&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Trip phase&quot;}}">
 const ACC = 'var(--color-accent)';
@@ -964,7 +962,7 @@ class Component extends DCLogic {
   }
 
   tryCode() {
-    if (this.state.code.trim() === '8205') this.setState({ unlocked: true, lockOpen: false, code: '', codeErr: false });
+    if (this.state.code.trim() === '0213') this.setState({ unlocked: true, lockOpen: false, code: '', codeErr: false });
     else this.setState({ codeErr: true });
   }
 
